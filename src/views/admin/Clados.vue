@@ -10,7 +10,6 @@
             <a href="#" class="btn-new" title="New">Novo Clado</a>
           </div>
         </div>
-<<<<<<< HEAD
       </div>
       <img src="@/assets/imagens/painel/img3.jpg" class="card-img-bottom" alt="Imagem de capa do card">
     </div>
@@ -33,27 +32,6 @@
       </tbody>
     </table>
   </main>
-=======
-        <table class="table table-dark table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Opções</th>
-                </tr>
-            </thead>
-            <tbody>
-              <tr v-for="clado in state.clados" :key="clado.id">
-                <td scope="row">{{ clado.id }}</td>
-                <td>{{ clado.tipo }}</td>
-                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                  <a @click="deleteClado(clado.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                </td>
-              </tr>
-            </tbody>
-        </table>
-    </main>
->>>>>>> 22af5e2953bcd60ee1298d234348e3ee77fe4447
 </template>
 
 <script setup>
@@ -79,11 +57,7 @@ async function deleteClado(id) {
   try {
     await services.clado.delete(id);
   } catch (error) {
-<<<<<<< HEAD
     console.error('Erro ao deletar dieta:', error);
-=======
-    console.error('Erro ao criar clado:', error);
->>>>>>> 22af5e2953bcd60ee1298d234348e3ee77fe4447
   }
   getClados();
 }

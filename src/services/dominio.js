@@ -6,11 +6,7 @@ export default (httpClient) => ({
         data: response.data
       }
     } catch (error) {
-<<<<<<< HEAD
-      console.error('Erro ao buscar dominio:', error);
-=======
       console.error('Erro ao buscar dominios:', error);
->>>>>>> 22af5e2953bcd60ee1298d234348e3ee77fe4447
       throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
     }
   },

@@ -6,11 +6,7 @@ export default (httpClient) => ({
         data: response.data
       }
     } catch (error) {
-<<<<<<< HEAD
       console.error('Erro ao buscar familia:', error);
-=======
-      console.error('Erro ao buscar familias:', error);
->>>>>>> 22af5e2953bcd60ee1298d234348e3ee77fe4447
       throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
     }
   },
@@ -23,11 +19,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao salvar familia:', error);
-<<<<<<< HEAD
       throw error;
-=======
-      throw error; 
->>>>>>> 22af5e2953bcd60ee1298d234348e3ee77fe4447
     }
   },
   delete: async (id) => {
@@ -39,11 +31,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao deletar familia:', error);
-<<<<<<< HEAD
       throw error;
-=======
-      throw error; 
->>>>>>> 22af5e2953bcd60ee1298d234348e3ee77fe4447
     }
   }
 });
