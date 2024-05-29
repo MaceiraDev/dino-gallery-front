@@ -1,20 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LayoutAdmin from '../layouts/LayoutAdmin.vue';
 import HomeView from '../views/HomeView.vue';
-//Painel
-import Dashboard from '../views/admin/Dashboard.vue';
-import Users from '../views/admin/Users.vue';
-import Dietas from '../views/admin/Dietas.vue';
-import Especies from '../views/admin/Especies.vue';
-import Dominios from '../views/admin/Dominios.vue';
-import Clados from '../views/admin/Clados.vue';
-import Familias from '../views/admin/Familias.vue';
-import SubFamilias from '../views/admin/SubFamilias.vue';
-import Filos from '../views/admin/Filos.vue';
-import Generos from '../views/admin/Generos.vue';
-import Reinos from '../views/admin/Reinos.vue';
-import MetodosLocomocaos from '../views/admin/MetodosLocomocaos.vue';
-import Periodos from '../views/admin/Periodos.vue';
+
 
 
 const router = createRouter({
@@ -37,67 +24,82 @@ const router = createRouter({
         {
           path: '',
           name: 'dashboard',
-          component: Dashboard
+          component: () => import('../views/admin/Dashboard.vue')
         },
         {
           path: 'dietas',
           name: 'dietas',
-          component: Dietas
+          component: () => import('../views/admin/Dietas.vue')
         },
         {
           path: 'especies',
           name: 'especies',
-          component: Especies
+          component: () => import('../views/admin/Especies.vue')
         },
         {
           path: 'dominios',
           name: 'dominios',
-          component: Dominios
+          component: () => import('../views/admin/Dominios.vue')
         },
         {
           path: 'clados',
           name: 'clados',
-          component: Clados
+          component: () => import('../views/admin/Clados.vue')
         },
         {
           path: 'familias',
           name: 'familias',
-          component: Familias
+          component: () => import('../views/admin/Familias.vue')
         },
         {
           path: 'subfamilias',
           name: 'subfamilias',
-          component: SubFamilias
+          component: () => import('../views/admin/SubFamilias.vue')
         },
         {
           path: 'filos',
           name: 'filos',
-          component: Filos
+          component: () => import('../views/admin/Filos.vue')
         },
         {
           path: 'generos',
           name: 'generos',
-          component: Generos
+          component: () => import('../views/admin/Generos.vue')
         },
         {
           path: 'reinos',
           name: 'reinos',
-          component: Reinos
+          component: () => import('../views/admin/Reinos.vue')
         },
         {
           path: 'metodos-de-locomocaos',
           name: 'metodoslocomocaos ',
-          component: MetodosLocomocaos
+          component: () => import('../views/admin/MetodosLocomocaos.vue')
         },
         {
           path: 'periodos',
           name: 'periodos',
-          component: Periodos
+          component: () => import('../views/admin/Periodos.vue')
         },
         {
           path: 'users',
           name: 'users',
-          component: Users
+          component: () => import('../views/admin/Users.vue')
+        },
+        {
+          path: 'cadastrar/dieta',
+          name: 'cadastrar-dieta',
+          component: () => import('../views/admin/cadastrar/Dieta.vue')
+        },
+        {
+          path: 'cadastrar/especie',
+          name: 'cadastrar-especie',
+          component: () => import('../views/admin/cadastrar/Especie.vue')
+        },
+        {
+          path: 'cadastrar/dominio',
+          name: 'cadastrar-dominio',
+          component: () => import('../views/admin/cadastrar/Dominio.vue')
         },
       ]
     }

@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="subFamilia in state.SubFamilia" :key="subFamilia.id">
+                <td scope="row">{{ subFamilia.id }}</td>
+                <td>{{ subFamilia.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteSubFamilias(subFamilia.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  subFamilias: [],
+})
+
+async function getSubFamilias() {
+  try {
+    const { data } = await services.subFamilia.getAll();
+    state.subFamilias = data;
+  } catch (error) {
+    console.error('Erro ao buscar as sub-familias:', error);
+  }
+}
+
+async function deleteSubFamilias(id) {
+  if (!confirm('Tem certeza que deseja excluir esta Sub-Familia?')) return;
+  console.log(id);
+  try {
+    await services.subFamilia.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar sub-familia:', error);
+  }
+  getSubFamilias();
+}
+
+onMounted(getSubFamilias);
 </script>
 
 <style scoped>

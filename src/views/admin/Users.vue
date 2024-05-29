@@ -23,29 +23,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>Orlando</td>
-                    <td>qBjTj@example.com</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>Orlando</td>
-                    <td>qBjTj@example.com</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="User in state.User" :key="User.id">
+                <td scope="row">{{ User.id }}</td>
+                <td>{{ User.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteUsers(User.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  Users: [],
+})
+
+async function getUsers() {
+  try {
+    const { data } = await services.Users.getAll();
+    state.Users = data;
+  } catch (error) {
+    console.error('Erro ao buscar os usuarios:', error);
+  }
+}
+
+async function deleteUsers(id) {
+  if (!confirm('Tem certeza que deseja excluir este Usuario?')) return;
+  console.log(id);
+  try {
+    await services.User.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar usuario:', error);
+  }
+  getUsers();
+}
+
+onMounted(getUsers);
 </script>
 
 <style scoped>

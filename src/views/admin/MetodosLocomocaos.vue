@@ -7,7 +7,7 @@
                         <h5 class="card-title">Metodo de Locomoção</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">Novo Metodo de Locomoção</a>
+                        <a href="#" class="btn-new" title="New">Novo Método</a>
                     </div>
                 </div>
             </div>
@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="metodosLocomocao in state.metodosLocomocao" :key="metodosLocomocao.id">
+                <td scope="row">{{ metodosLocomocao.id }}</td>
+                <td>{{ metodosLocomocao.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteMetodosLocomocao(metodosLocomocao.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  metodosLocomocao: [],
+})
+
+async function getMetodosLocomocao() {
+  try {
+    const { data } = await services.filo.getAll();
+    state.metodosLocomocao = data;
+  } catch (error) {
+    console.error('Erro ao buscar os metodos de locomoção:', error);
+  }
+}
+
+async function deleteMetodosLocomocao(id) {
+  if (!confirm('Tem certeza que deseja excluir este Metodo de Locomoção?')) return;
+  console.log(id);
+  try {
+    await services.metodosLocomocao.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar metodo de locomoção:', error);
+  }
+  getMetodosLocomocao();
+}
+
+onMounted(getMetodosLocomocao);
 </script>
 
 <style scoped>

@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="reino in state.reino" :key="reino.id">
+                <td scope="row">{{ reino.id }}</td>
+                <td>{{ reino.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteReino(reino.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  reinos: [],
+})
+
+async function getReinos() {
+  try {
+    const { data } = await services.reino.getAll();
+    state.reinos = data;
+  } catch (error) {
+    console.error('Erro ao buscar os reinos:', error);
+  }
+}
+
+async function deleteReino(id) {
+  if (!confirm('Tem certeza que deseja excluir este Reino?')) return;
+  console.log(id);
+  try {
+    await services.reino.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar reino:', error);
+  }
+  getReinos();
+}
+
+onMounted(getReinos);
 </script>
 
 <style scoped>

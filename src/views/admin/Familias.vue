@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="familia in state.familias" :key="familia.id">
+                <td scope="row">{{ familia.id }}</td>
+                <td>{{ familia.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteFamilia(familia.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  familias: [],
+})
+
+async function getFamilias() {
+  try {
+    const { data } = await services.familia.getAll();
+    state.familias = data;
+  } catch (error) {
+    console.error('Erro ao buscar as familias:', error);
+  }
+}
+
+async function deleteFamilia(id) {
+  if (!confirm('Tem certeza que deseja excluir esta Familia?')) return;
+  console.log(id);
+  try {
+    await services.familia.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar familia:', error);
+  }
+  getFamilias();
+}
+
+onMounted(getFamilias);
 </script>
 
 <style scoped>

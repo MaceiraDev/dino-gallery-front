@@ -7,7 +7,7 @@
                         <h5 class="card-title">Espécies</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">Nova Dieta</a>
+                        <a href="/admin/cadastrar/especie" class="btn-new" title="New">Nova Espécie</a>
                     </div>
                 </div>
             </div>
@@ -22,27 +22,48 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>Carnivoros</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>Onivoros</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="especie in state.especies" :key="especie.id">
+                <td scope="row">{{ especie.id }}</td>
+                <td>{{ especie.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteEspecie(especie.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  especies: [],
+})
+
+async function getEspecies() {
+  try {
+    const { data } = await services.especie.getAll();
+    state.especies = data;
+  } catch (error) {
+    console.error('Erro ao buscar as especies:', error);
+  }
+}
+
+async function deleteEspecie(id) {
+  if (!confirm('Tem certeza que deseja excluir esta Especie?')) 
+  return;
+  console.log(id);
+  try {
+    await services.especie.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar especie:', error);
+  }
+  getEspecies();
+}
+
+onMounted(getEspecies);
 </script>
 
 <style scoped>

@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="genero in state.generos" :key="genero.id">
+                <td scope="row">{{ genero.id }}</td>
+                <td>{{ genero.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteFamilia(genero.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  generos: [],
+})
+
+async function getGeneros() {
+  try {
+    const { data } = await services.genero.getAll();
+    state.genero = data;
+  } catch (error) {
+    console.error('Erro ao buscar os generos:', error);
+  }
+}
+
+async function deleteGenero(id) {
+  if (!confirm('Tem certeza que deseja excluir este Genero?')) return;
+  console.log(id);
+  try {
+    await services.genero.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar genero:', error);
+  }
+  getGeneros();
+}
+
+onMounted(getGeneros);
 </script>
 
 <style scoped>

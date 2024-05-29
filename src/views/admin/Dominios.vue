@@ -7,7 +7,7 @@
                         <h5 class="card-title">Dominio</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">Novo Dominio</a>
+                        <a href="/admin/cadastrar/dominio" class="btn-new" title="New">Novo Dominio</a>
                     </div>
                 </div>
             </div>
@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="dominio in state.dominios" :key="dominio.id">
+                <td scope="row">{{ dominio.id }}</td>
+                <td>{{ dominio.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteDominio(dominio.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  dominios: [],
+})
+
+async function getDominios() {
+  try {
+    const { data } = await services.dominio.getAll();
+    state.dominios = data;
+  } catch (error) {
+    console.error('Erro ao buscar os dominios:', error);
+  }
+}
+
+async function deleteDominio(id) {
+  if (!confirm('Tem certeza que deseja excluir este Dominio?')) return;
+  console.log(id);
+  try {
+    await services.dominio.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar dominio:', error);
+  }
+  getDominios();
+}
+
+onMounted(getDominios);
 </script>
 
 <style scoped>

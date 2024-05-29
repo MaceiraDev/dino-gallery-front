@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="periodo in state.Periodo" :key="periodo.id">
+                <td scope="row">{{ Periodo.id }}</td>
+                <td>{{ Periodo.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deletePeriodo(periodo.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  periodos: [],
+})
+
+async function getPeriodos() {
+  try {
+    const { data } = await services.periodo.getAll();
+    state.periodos = data;
+  } catch (error) {
+    console.error('Erro ao buscar os periodos:', error);
+  }
+}
+
+async function deletePeriodo(id) {
+  if (!confirm('Tem certeza que deseja excluir este Periodo?')) return;
+  console.log(id);
+  try {
+    await services.periodo.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar periodo:', error);
+  }
+  getPeriodos();
+}
+
+onMounted(getPeriodos);
 </script>
 
 <style scoped>

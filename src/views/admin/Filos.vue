@@ -22,27 +22,47 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>xxx</td>
-                    <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-                        <a href="" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
+              <tr v-for="filo in state.filos" :key="filo.id">
+                <td scope="row">{{ filo.id }}</td>
+                <td>{{ filo.tipo }}</td>
+                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                  <a @click="deleteFilo(filo.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                </td>
+              </tr>
             </tbody>
         </table>
     </main>
 </template>
 
 <script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
 
+const state = reactive({
+  filos: [],
+})
+
+async function getFilos() {
+  try {
+    const { data } = await services.filo.getAll();
+    state.filos = data;
+  } catch (error) {
+    console.error('Erro ao buscar os filos:', error);
+  }
+}
+
+async function deleteFilo(id) {
+  if (!confirm('Tem certeza que deseja excluir este Filo?')) return;
+  console.log(id);
+  try {
+    await services.filo.delete(id);
+  } catch (error) {
+    console.error('Erro ao criar filo:', error);
+  }
+  getFilos();
+}
+
+onMounted(getFilos);
 </script>
 
 <style scoped>
