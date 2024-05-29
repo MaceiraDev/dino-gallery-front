@@ -4,6 +4,7 @@ import especieService from "./especie";
 import dominioService from "./dominio";
 import cladoService from "./clado";
 import familiaService from "./familia";
+import subFamiliaService from "./subFamilia";
 
 const API_URL = "http://localhost:8070";
 
@@ -17,4 +18,5 @@ export default {
   dominio: dominioService(httpClient),
   clado: cladoService(httpClient),
   familia: familiaService(httpClient),
+  subFamilia: subFamiliaService(httpClient),
 }

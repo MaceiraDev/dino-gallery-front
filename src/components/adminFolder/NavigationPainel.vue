@@ -35,7 +35,7 @@
         @click="setActive('familias')">
         <i class="bi bi-card-list"></i><span>Familias</span>
       </router-link>
-      <router-link to="/admin/subfamilias" class="nav" :class="{ 'nav-selected': activeLink === 'subfamilias' }"
+      <router-link to="/admin/sub-familias" class="nav" :class="{ 'nav-selected': activeLink === 'subfamilias' }"
         @click="setActive('subfamilias')">
         <i class="bi bi-card-list"></i><span>Sub Familias</span>
       </router-link>

@@ -52,7 +52,7 @@ const router = createRouter({
           component: () => import('../views/admin/Familias.vue')
         },
         {
-          path: 'subfamilias',
+          path: 'sub-familias',
           name: 'subfamilias',
           component: () => import('../views/admin/SubFamilias.vue')
         },
@@ -105,6 +105,11 @@ const router = createRouter({
           path: 'cadastrar/familia',
           name: 'cadastrar-familia',
           component: () => import('../views/admin/cadastrar/Familia.vue')
+        },
+        {
+          path: 'cadastrar/sub-familia',
+          name: 'cadastrar-sub-familia',
+          component: () => import('../views/admin/cadastrar/SubFamilia.vue')
         }
       ]
     }
