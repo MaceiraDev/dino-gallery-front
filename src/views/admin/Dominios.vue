@@ -7,7 +7,7 @@
                         <h5 class="card-title">Dominio</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="/admin/cadastrar/dominio" class="btn-new" title="New">Novo Dominio</a>
+                        <RouterLink to="/admin/cadastrar/dominio" class="btn-new" title="New">Novo Dominio</RouterLink>
                     </div>
                 </div>
             </div>

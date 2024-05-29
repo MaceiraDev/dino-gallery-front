@@ -7,7 +7,7 @@
             <h5 class="card-title">Dietas</h5>
           </div>
           <div class="col-md-6 text-end">
-            <a href="/admin/cadastrar/dieta" class="btn-new" title="New">Nova Dieta</a>
+            <RouterLink to="/admin/cadastrar/dieta" class="btn-new" title="New">Nova Dieta</RouterLink>
           </div>
         </div>
       </div>

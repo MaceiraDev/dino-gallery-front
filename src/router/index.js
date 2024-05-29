@@ -101,6 +101,11 @@ const router = createRouter({
           name: 'cadastrar-dominio',
           component: () => import('../views/admin/cadastrar/Dominio.vue')
         },
+        {
+          path: 'cadastrar/familia',
+          name: 'cadastrar-familia',
+          component: () => import('../views/admin/cadastrar/Familia.vue')
+        }
       ]
     }
   ]
