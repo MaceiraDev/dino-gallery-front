@@ -110,6 +110,41 @@ const router = createRouter({
           path: 'cadastrar/sub-familia',
           name: 'cadastrar-sub-familia',
           component: () => import('../views/admin/cadastrar/SubFamilia.vue')
+        },
+        {
+          path: 'cadastrar/clado',
+          name: 'cadastrar-clado',
+          component: () => import('../views/admin/cadastrar/Clado.vue')
+        },
+        {
+          path: 'cadastrar/filo',
+          name: 'cadastrar-filo',
+          component: () => import('../views/admin/cadastrar/Filo.vue')
+        },
+        {
+          path: 'cadastrar/genero',
+          name: 'cadastrar-genero',
+          component: () => import('../views/admin/cadastrar/Genero.vue')
+        },
+        {
+          path: 'cadastrar/periodo',
+          name: 'cadastrar-periodo',
+          component: () => import('../views/admin/cadastrar/Periodo.vue')
+        },
+        {
+          path: 'cadastrar/reino',
+          name: 'cadastrar-reino',
+          component: () => import('../views/admin/cadastrar/Reino.vue')
+        },
+        {
+          path: 'cadastrar/metodoLocomocao',
+          name: 'cadastrar-metodoLocomocao',
+          component: () => import('../views/admin/cadastrar/MetodoLocomocao.vue')
+        },
+        {
+          path: 'cadastrar/user',
+          name: 'cadastrar-user',
+          component: () => import('../views/admin/cadastrar/User.vue')
         }
       ]
     }

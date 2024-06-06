@@ -36,7 +36,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-  familia: { tipo: "" },
+   familia: { tipo: "" },
 });
 
 async function novaFamalia() {

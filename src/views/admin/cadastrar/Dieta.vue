@@ -36,6 +36,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
+  id: "",
   dieta: { tipo: "" },
 });
 

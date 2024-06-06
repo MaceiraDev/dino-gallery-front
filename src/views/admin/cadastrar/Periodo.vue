@@ -4,24 +4,24 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title">Nova Espécie</h5>
+            <h5 class="card-title">Novo Periodo</h5>
           </div>
         </div>
         <div class="line-form"></div>
-        <form @submit.prevent="novaEspecie">
+        <form @submit.prevent="novoPeriodo">
           <div class="row">
             <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
               <input type="text" id="id" readonly>
             </div>
             <div class="col-sm-6">
-              <label for="inputDieta" class="form-label">Tipo</label>
-              <input v-model="state.especie.tipo" type="text" id="inputDieta" required>
+              <label for="inputPeriodo" class="form-label">Tipo</label>
+              <input v-model="state.periodo.tipo" type="text" id="inputPeriodo" required>
             </div>
           </div>
           <div class="text-end mt-3">
             <button type="submit" class="btn btn-primary me-2">Cadastrar</button>
-            <router-link to="/admin/dietas" class="btn btn-danger">Cancelar</router-link>"
+            <router-link to="/admin/periodos" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
       </div>
@@ -36,15 +36,15 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   especie: { tipo: "" },
+   periodo: { tipo: "" },
 });
 
-async function novaEspecie() {
+async function novoPeriodo() {
   try {
-    await services.especie.salvar(state.especie.tipo);
-    router.push("/admin/especies");
+    await services.periodo.salvar(state.periodo.tipo);
+    router.push("/admin/periodos");
   } catch (error) {
-    console.error("Erro ao criar dieta:", error);
+    console.error("Erro ao criar periodo:", error);
   }
 
 }

@@ -36,8 +36,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-  id: "",
-  dominio: { tipo: "" },
+   dominio: { tipo: "" },
 });
 
 async function novoDominio() {

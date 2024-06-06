@@ -36,7 +36,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-  subFamilia: { tipo: "" },
+   subFamilia: { tipo: "" },
 });
 
 async function novaSub() {
