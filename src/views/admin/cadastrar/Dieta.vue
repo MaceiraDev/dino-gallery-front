@@ -10,7 +10,7 @@
         <div class="line-form"></div>
         <form @submit.prevent="novaDieta">
           <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
               <input type="text" id="id" readonly>
             </div>
@@ -31,7 +31,7 @@
 
 <script setup>
 import services from "@/services";
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -39,6 +39,13 @@ const state = reactive({
   id: "",
   dieta: { tipo: "" },
 });
+
+onMounted(() => {
+  if (router.currentRoute._value.params.id != undefined) {
+    console.log(router.currentRoute._value.params.id);
+    state.id = router.currentRoute._value.params.id;
+  }
+})
 
 async function novaDieta() {
   try {

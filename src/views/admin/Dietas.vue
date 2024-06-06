@@ -25,7 +25,10 @@
         <tr v-for="dieta in state.dietas" :key="dieta.id">
           <td scope="row">{{ dieta.id }}</td>
           <td>{{ dieta.tipo }}</td>
-          <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+          <td>
+            <router-link :to="{ name: 'alterar-dieta',  params: { id: dieta.id },}" class="btn btn-primary" title="Alterar">
+              <i class="bi bi-pencil"></i>
+            </router-link>
             <a @click="deleteDieta(dieta.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
           </td>
         </tr>

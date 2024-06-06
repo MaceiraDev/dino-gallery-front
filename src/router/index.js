@@ -92,6 +92,11 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Dieta.vue')
         },
         {
+          path: 'alterar/dieta/:id',
+          name: 'alterar-dieta',
+          component: () => import('../views/admin/cadastrar/Dieta.vue')
+        },
+        {
           path: 'cadastrar/especie',
           name: 'cadastrar-especie',
           component: () => import('../views/admin/cadastrar/Especie.vue')
