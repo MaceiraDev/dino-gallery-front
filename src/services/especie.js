@@ -7,8 +7,12 @@ export default (httpClient) => ({
       }
     } catch (error) {
       console.error('Erro ao buscar especies:', error);
-      throw error; 
+      throw error;
     }
+  },
+  getById: async (id) => {
+    const response = await httpClient.get('/especie/' + id);
+    return { data: response.data }
   },
   salvar: async (tipo) => {
     try {
@@ -19,6 +23,18 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao salvar dieta:', error);
+      throw error;
+    }
+  },
+  update: async (id, especie) => {
+    try {
+      const response = await httpClient.put('/especie/atualizar/' + id, especie);
+      return {
+        data: response.data
+      }
+    }
+    catch (error) {
+      console.error('Erro ao atualizar especie:', error);
       throw error;
     }
   },

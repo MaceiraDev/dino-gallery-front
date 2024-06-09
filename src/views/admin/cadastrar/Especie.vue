@@ -4,15 +4,16 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title">Nova Espécie</h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Espécie</span> <span v-else>Cadastrar Espécie</span>
+            </h5>
           </div>
         </div>
         <div class="line-form"></div>
-        <form @submit.prevent="novaEspecie">
+        <form @submit.prevent="novaEpecie">
           <div class="row">
             <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
-              <input type="text" id="id" readonly>
+              <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
               <label for="inputDieta" class="form-label">Tipo</label>
@@ -20,8 +21,9 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2">Cadastrar</button>
-            <router-link to="/admin/dietas" class="btn btn-danger">Cancelar</router-link>"
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span
+                v-else>Cadastrar</span></button>
+            <router-link to="/admin/especies" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
       </div>
@@ -31,23 +33,51 @@
 
 <script setup>
 import services from "@/services";
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   especie: { tipo: "" },
+  id: "",
+  especie: { tipo: "" },
 });
 
-async function novaEspecie() {
+onMounted(() => {
+  if (router.currentRoute._value.params.id != undefined) {
+    state.id = router.currentRoute._value.params.id;
+    getEspecie(state.id);
+  }
+})
+
+async function getEspecie(id) {
   try {
-    await services.especie.salvar(state.especie.tipo);
-    router.push("/admin/especies");
+    const { data } = await services.especie.getById(id);
+    state.especie = data;
   } catch (error) {
-    console.error("Erro ao criar dieta:", error);
+    console.error("Erro ao buscar especie:", error);
+  }
+}
+
+async function novaEpecie() {
+  if (state.id) {
+    try {
+      await services.especie.update(state.id, state.especie);
+      router.push("/admin/especies");
+    } catch (error) {
+      console.error("Erro ao alterar especie:", error);
+    }
+  } else {
+    try {
+      await services.especie.salvar(state.especie.tipo);
+      router.push("/admin/especies");
+    } catch (error) {
+      console.error("Erro ao criar especie:", error);
+    }
   }
 
 }
+
+
 
 </script>
 

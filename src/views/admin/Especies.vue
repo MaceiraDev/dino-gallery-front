@@ -25,7 +25,10 @@
         <tr v-for="especie in state.especies" :key="especie.id">
           <td scope="row">{{ especie.id }}</td>
           <td>{{ especie.tipo }}</td>
-          <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+          <td>
+            <router-link :to="{ name: 'alterar-especie',  params: { id: especie.id },}" class="btn btn-primary" title="Alterar">
+              <i class="bi bi-pencil"></i>
+            </router-link>            
             <a @click="deleteEspecie(especie.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
           </td>
         </tr>
