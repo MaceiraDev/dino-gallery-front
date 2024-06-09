@@ -1,14 +1,11 @@
 export default (httpClient) => ({
-  async getAll() {
-    try {
-      const response = await httpClient.get('/dieta');
-      return {
-        data: response.data
-      }
-    } catch (error) {
-      console.error('Erro ao buscar dietas:', error);
-      throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
-    }
+  getAll: async () => {
+    const response = await httpClient.get('/dieta');
+    return { data: response.data }
+  },
+  getById: async (id) => {
+    const response = await httpClient.get('/dieta/' + id);
+    return { data: response.data }
   },
   salvar: async (tipo) => {
     try {
@@ -19,7 +16,19 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao salvar dieta:', error);
-      throw error; 
+      throw error;
+    }
+  },
+  update: async (id, dieta) => {
+    try {
+      const response = await httpClient.put('/dieta/atualizar/' + id, dieta);
+      return {
+        data: response.data
+      }
+    }
+    catch (error) {
+      console.error('Erro ao atualizar dieta:', error);
+      throw error;
     }
   },
   delete: async (id) => {
@@ -31,7 +40,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao deletar dieta:', error);
-      throw error; 
+      throw error;
     }
   }
 });

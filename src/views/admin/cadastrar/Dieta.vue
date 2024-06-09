@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title">Nova Dieta</h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Dieta</span> <span v-else>Cadastrar Dieta</span></h5>
           </div>
         </div>
         <div class="line-form"></div>
@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
-              <input type="text" id="id" readonly>
+              <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
               <label for="inputDieta" class="form-label">Tipo</label>
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2">Cadastrar</button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
             <router-link to="/admin/dietas" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -42,20 +42,40 @@ const state = reactive({
 
 onMounted(() => {
   if (router.currentRoute._value.params.id != undefined) {
-    console.log(router.currentRoute._value.params.id);
     state.id = router.currentRoute._value.params.id;
+    getDieta(state.id);
   }
 })
 
-async function novaDieta() {
+async function getDieta(id) {
   try {
-    await services.dieta.salvar(state.dieta.tipo);
-    router.push("/admin/dietas");
+    const { data } = await services.dieta.getById(id);
+    state.dieta = data;
   } catch (error) {
-    console.error("Erro ao criar dieta:", error);
+    console.error("Erro ao buscar dieta:", error);
+  }
+}
+
+async function novaDieta() {
+  if (state.id) {
+    try {
+      await services.dieta.update(state.id, state.dieta);
+      router.push("/admin/dietas");
+    } catch (error) {
+      console.error("Erro ao alterar dieta:", error);
+    }
+  } else {
+    try {
+      await services.dieta.salvar(state.dieta.tipo);
+      router.push("/admin/dietas");
+    } catch (error) {
+      console.error("Erro ao criar dieta:", error);
+    }
   }
 
 }
+
+
 
 </script>
 
