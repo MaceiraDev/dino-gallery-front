@@ -112,6 +112,11 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Dominio.vue')
         },
         {
+          path: 'alterar/dominio/:id',
+          name: 'alterar-dominio',
+          component: () => import('../views/admin/cadastrar/Dominio.vue')
+        },
+        {
           path: 'cadastrar/familia',
           name: 'cadastrar-familia',
           component: () => import('../views/admin/cadastrar/Familia.vue')

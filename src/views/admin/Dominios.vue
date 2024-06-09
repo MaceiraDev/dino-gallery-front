@@ -25,7 +25,10 @@
               <tr v-for="dominio in state.dominios" :key="dominio.id">
                 <td scope="row">{{ dominio.id }}</td>
                 <td>{{ dominio.tipo }}</td>
-                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                <td>
+                  <RouterLink :to="{ name: 'alterar-dominio',  params: { id: dominio.id },}" class="btn btn-primary" title="Alterar">
+                    <i class="bi bi-pencil"></i>
+                  </RouterLink>
                   <a @click="deleteDominio(dominio.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
                 </td>
               </tr>
