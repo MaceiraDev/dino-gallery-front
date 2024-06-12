@@ -1,13 +1,22 @@
 export default (httpClient) => ({
-  async getAll() {
+  getAll: async () => {
+    const response = await httpClient.get('/user');
+    return { data: response.data }
+  },
+  getById: async (id) => {
+    const response = await httpClient.get('/user/' + id);
+    return { data: response.data }
+  },
+  update: async (id, user) => {
     try {
-      const response = await httpClient.get('/user');
+      const response = await httpClient.put('/user/atualizar/' + id, user);
       return {
         data: response.data
       }
-    } catch (error) {
-      console.error('Erro ao buscar users:', error);
-      throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
+    }
+    catch (error) {
+      console.error('Erro ao atualizar user:', error);
+      throw error;
     }
   },
   salvar: async (tipo) => {

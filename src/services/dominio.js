@@ -1,13 +1,22 @@
 export default (httpClient) => ({
-  async getAll() {
+  getAll: async () => {
+    const response = await httpClient.get('/dominio');
+    return { data: response.data }
+  },
+  getById: async (id) => {
+    const response = await httpClient.get('/dominio/' + id);
+    return { data: response.data }
+  },
+  update: async (id, dominio) => {
     try {
-      const response = await httpClient.get('/dominio');
+      const response = await httpClient.put('/dominio/atualizar/' + id, dominio);
       return {
         data: response.data
       }
-    } catch (error) {
-      console.error('Erro ao buscar dominios:', error);
-      throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
+    }
+    catch (error) {
+      console.error('Erro ao atualizar dominio:', error);
+      throw error;
     }
   },
   salvar: async (tipo) => {

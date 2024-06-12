@@ -1,13 +1,22 @@
 export default (httpClient) => ({
-  async getAll() {
+  getAll: async () => {
+    const response = await httpClient.get('/familia');
+    return { data: response.data }
+  },
+  getById: async (id) => {
+    const response = await httpClient.get('/familia/' + id);
+    return { data: response.data }
+  },
+  update: async (id, familia) => {
     try {
-      const response = await httpClient.get('/familia');
+      const response = await httpClient.put('/familia/atualizar/' + id, familia);
       return {
         data: response.data
       }
-    } catch (error) {
-      console.error('Erro ao buscar familia:', error);
-      throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
+    }
+    catch (error) {
+      console.error('Erro ao atualizar familia:', error);
+      throw error;
     }
   },
   salvar: async (tipo) => {

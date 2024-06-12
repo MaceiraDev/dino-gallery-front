@@ -1,13 +1,22 @@
 export default (httpClient) => ({
-  async getAll() {
+   getAll: async () => {
+    const response = await httpClient.get('/clado');
+    return { data: response.data }
+  },
+  getById: async (id) => {
+    const response = await httpClient.get('/clado/' + id);
+    return { data: response.data }
+  },
+  update: async (id, clado) => {
     try {
-      const response = await httpClient.get('/clado');
+      const response = await httpClient.put('/clado/atualizar/' + id, clado);
       return {
         data: response.data
       }
-    } catch (error) {
-      console.error('Erro ao buscar clado:', error);
-      throw error; // Lançar o erro novamente para ser tratado onde a função é chamada
+    }
+    catch (error) {
+      console.error('Erro ao atualizar clado:', error);
+      throw error;
     }
   },
   salvar: async (tipo) => {
