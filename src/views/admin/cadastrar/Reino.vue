@@ -39,12 +39,37 @@ const state = reactive({
    reino: { tipo: "" },
 });
 
-async function novoReino() {
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getReino(state.id);
+  }
+})
+
+async function getReino(id) {
   try {
-    await services.reino.salvar(state.reino.tipo);
-    router.push("/admin/reinos");
+    const { data } = await services.reino.getById(id);
+    state.reino = data;
   } catch (error) {
-    console.error("Erro ao criar reino:", error);
+    console.error("Erro ao buscar reino:", error);
+  }
+}
+
+async function novoReino() {
+  if (state.id) {
+    try {
+      await services.reino.update(state.id, state.reino);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao alterar reino:", error);
+    }
+  } else {
+    try {
+      await services.reino.salvar(state.reino.tipo);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao criar reino:", error);
+    }
   }
 
 }

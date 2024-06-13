@@ -39,15 +39,42 @@ const state = reactive({
    user: { tipo: "" },
 });
 
-async function novoUser() {
+
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getUser(state.id);
+  }
+})
+
+async function getUser(id) {
   try {
-    await services.user.salvar(state.user.tipo);
-    router.push("/admin/users");
+    const { data } = await services.user.getById(id);
+    state.subFamilia = data;
   } catch (error) {
-    console.error("Erro ao criar user:", error);
+    console.error("Erro ao buscar user:", error);
+  }
+}
+
+async function novoUser() {
+  if (state.id) {
+    try {
+      await services.user.update(state.id, state.user);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao alterar user:", error);
+    }
+  } else {
+    try {
+      await services.user.salvar(state.user.tipo);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao criar user:", error);
+    }
   }
 
 }
+
 
 </script>
 

@@ -43,7 +43,7 @@ const state = reactive({
 });
 
 onMounted(() => {
-  if (router.currentRoute._value.params.id != undefined) {
+  if (router.currentRoute.value.params.id != undefined) {
     state.id = router.currentRoute._value.params.id;
     getEspecie(state.id);
   }

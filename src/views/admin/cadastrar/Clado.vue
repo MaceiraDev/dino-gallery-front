@@ -39,15 +39,41 @@ const state = reactive({
    clado: { tipo: "" },
 });
 
-async function novoClado() {
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getClado(state.id);
+  }
+})
+
+async function getClado(id) {
   try {
-    await services.clado.salvar(state.clado.tipo);
-    router.push("/admin/clados");
+    const { data } = await services.clado.getById(id);
+    state.clado = data;
   } catch (error) {
-    console.error("Erro ao criar clado:", error);
+    console.error("Erro ao buscar clado:", error);
+  }
+}
+
+async function novoClado() {
+  if (state.id) {
+    try {
+      await services.clado.update(state.id, state.clado);
+      router.push("/admin/clados");
+    } catch (error) {
+      console.error("Erro ao alterar clado:", error);
+    }
+  } else {
+    try {
+      await services.clado.salvar(state.clado.tipo);
+      router.push("/admin/clados");
+    } catch (error) {
+      console.error("Erro ao criar clado:", error);
+    }
   }
 
 }
+
 
 </script>
 

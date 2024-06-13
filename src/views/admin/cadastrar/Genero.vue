@@ -39,15 +39,41 @@ const state = reactive({
    genero: { tipo: "" },
 });
 
-async function novoGenero() {
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getGenero(state.id);
+  }
+})
+
+async function getGenero(id) {
   try {
-    await services.genero.salvar(state.genero.tipo);
-    router.push("/admin/generos");
+    const { data } = await services.filo.getById(id);
+    state.filo = data;
   } catch (error) {
-    console.error("Erro ao criar genero:", error);
+    console.error("Erro ao buscar filo:", error);
+  }
+}
+
+async function novoGenero() {
+  if (state.id) {
+    try {
+      await services.filo.update(state.id, state.filo);
+      router.push("/admin/filos");
+    } catch (error) {
+      console.error("Erro ao alterar filo:", error);
+    }
+  } else {
+    try {
+      await services.filo.salvar(state.filo.tipo);
+      router.push("/admin/filos");
+    } catch (error) {
+      console.error("Erro ao criar filo:", error);
+    }
   }
 
 }
+
 
 </script>
 

@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="line-form"></div>
-        <form @submit.prevent="novaFamalia">
+        <form @submit.prevent="novaFamilia">
           <div class="row">
             <div class="col-sm-1">
               <label for="id" class="form-label">ID</label>
@@ -39,15 +39,41 @@ const state = reactive({
    familia: { tipo: "" },
 });
 
-async function novaFamalia() {
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getFamilia(state.id);
+  }
+})
+
+async function getFamilia(id) {
   try {
-    await services.familia.salvar(state.familia.tipo);
-    router.push("/admin/familias");
+    const { data } = await services.familia.getById(id);
+    state.familia = data;
   } catch (error) {
-    console.error("Erro ao criar familia:", error);
+    console.error("Erro ao buscar familia:", error);
+  }
+}
+
+async function novaFamilia() {
+  if (state.id) {
+    try {
+      await services.familia.update(state.id, state.familia);
+      router.push("/admin/especies");
+    } catch (error) {
+      console.error("Erro ao alterar familia:", error);
+    }
+  } else {
+    try {
+      await services.familia.salvar(state.familia.tipo);
+      router.push("/admin/especies");
+    } catch (error) {
+      console.error("Erro ao criar familia:", error);
+    }
   }
 
 }
+
 
 </script>
 

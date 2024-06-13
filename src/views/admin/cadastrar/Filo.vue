@@ -39,15 +39,41 @@ const state = reactive({
    filo: { tipo: "" },
 });
 
-async function novoFilo() {
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getFilo(state.id);
+  }
+})
+
+async function getFilo(id) {
   try {
-    await services.filo.salvar(state.filo.tipo);
-    router.push("/admin/filos");
+    const { data } = await services.filo.getById(id);
+    state.filo = data;
   } catch (error) {
-    console.error("Erro ao criar filo:", error);
+    console.error("Erro ao buscar filo:", error);
+  }
+}
+
+async function novoFilo() {
+  if (state.id) {
+    try {
+      await services.filo.update(state.id, state.filo);
+      router.push("/admin/filos");
+    } catch (error) {
+      console.error("Erro ao alterar filo:", error);
+    }
+  } else {
+    try {
+      await services.filo.salvar(state.filo.tipo);
+      router.push("/admin/filos");
+    } catch (error) {
+      console.error("Erro ao criar filo:", error);
+    }
   }
 
 }
+
 
 </script>
 

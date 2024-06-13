@@ -38,16 +38,42 @@ const router = useRouter();
 const state = reactive({
    metodolocomocao: { tipo: "" },
 });
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getMetodoLocomocao(state.id);
+  }
+})
+
+async function getMetodoLocomocao(id) {
+  try {
+    const { data } = await services.metodolocomocao.getById(id);
+    state.metodolocomocao = data;
+  } catch (error) {
+    console.error("Erro ao buscar metodolocomocao:", error);
+  }
+}
 
 async function novoMetodoLocomocao() {
-  try {
-    await services.filo.salvar(state.metodolocomocao.tipo);
-    router.push("/admin/metodolocomocaos");
-  } catch (error) {
-    console.error("Erro ao criar metodo de locomoção:", error);
+  if (state.id) {
+    try {
+      await services.metodolocomocao.update(state.id, state.metodolocomocao);
+      router.push("/admin/metodolocomocaos");
+    } catch (error) {
+      console.error("Erro ao alterar metodolocomocao:", error);
+    }
+  } else {
+    try {
+      await services.metodolocomocao.salvar(state.metodolocomocao.tipo);
+      router.push("/admin/metodolocomocaos");
+    } catch (error) {
+      console.error("Erro ao criar metodolocomocao:", error);
+    }
   }
 
 }
+
+
 
 </script>
 

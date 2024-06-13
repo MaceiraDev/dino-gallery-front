@@ -39,12 +39,37 @@ const state = reactive({
    subFamilia: { tipo: "" },
 });
 
-async function novaSub() {
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getSubfamilia(state.id);
+  }
+})
+
+async function getSubfamilia(id) {
   try {
-    await services.subFamilia.salvar(state.subFamilia.tipo);
-    router.push("/admin/sub-familias");
+    const { data } = await services.sub-familia.getById(id);
+    state.subFamilia = data;
   } catch (error) {
-    console.error("Erro ao criar familia:", error);
+    console.error("Erro ao buscar sub-familia:", error);
+  }
+}
+
+async function novaSub() {
+  if (state.id) {
+    try {
+      await services.sub-familia.update(state.id, state.sub-familia);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao alterar sub-familia:", error);
+    }
+  } else {
+    try {
+      await services.sub-familia.salvar(state.sub-familia.tipo);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao criar sub-familia:", error);
+    }
   }
 
 }

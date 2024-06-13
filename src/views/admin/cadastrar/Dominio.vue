@@ -43,8 +43,8 @@ const state = reactive({
 });
 
 onMounted(() => {
-  if (router.currentRoute._value.params.id != undefined) {
-    state.id = router.currentRoute._value.params.id;
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
     getDominio(state.id);
   }
 })

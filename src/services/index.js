@@ -5,10 +5,10 @@ import dominioService from "./dominio";
 import cladoService from "./clado";
 import familiaService from "./familia";
 import subFamiliaService from "./subFamilia";
-import metodoLocomocao from "./metodoLocomocao";
-import filo from "./filo";
-import genero from "./genero";
-import user from "./user";
+import metodoLocomocaoService from "./metodoLocomocao";
+import filoService from "./filo";
+import generoService from "./genero";
+import userService from "./user";
 const API_URL = "http://localhost:8070";
 
 const httpClient = axios.create({

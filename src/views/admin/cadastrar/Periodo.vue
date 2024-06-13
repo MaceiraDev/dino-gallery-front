@@ -39,12 +39,38 @@ const state = reactive({
    periodo: { tipo: "" },
 });
 
-async function novoPeriodo() {
+
+onMounted(() => {
+  if (router.currentRoute.value.params.id != undefined) {
+    state.id = router.currentRoute.value.params.id;
+    getPeriodo(state.id);
+  }
+})
+
+async function getPeriodo(id) {
   try {
-    await services.periodo.salvar(state.periodo.tipo);
-    router.push("/admin/periodos");
+    const { data } = await services.periodo.getById(id);
+    state.periodo = data;
   } catch (error) {
-    console.error("Erro ao criar periodo:", error);
+    console.error("Erro ao buscar periodo:", error);
+  }
+}
+
+async function novoPeriodo() {
+  if (state.id) {
+    try {
+      await services.periodo.update(state.id, state.periodo);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao alterar periodo:", error);
+    }
+  } else {
+    try {
+      await services.periodo.salvar(state.periodo.tipo);
+      router.push("/admin/periodos");
+    } catch (error) {
+      console.error("Erro ao criar periodo:", error);
+    }
   }
 
 }
