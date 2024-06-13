@@ -8,7 +8,7 @@ import subFamiliaService from "./subFamilia";
 import metodoLocomocao from "./metodoLocomocao";
 import filo from "./filo";
 import genero from "./genero";
-import user from "./user"
+import user from "./user";
 const API_URL = "http://localhost:8070";
 
 const httpClient = axios.create({
