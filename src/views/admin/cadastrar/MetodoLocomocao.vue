@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title">Novo Metodo de Locomoção</h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Metodo de Locomoção</span> <span v-else>Cadastrar Metodo de Locomoção</span></h5>
           </div>
         </div>
         <div class="line-form"></div>
@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
-              <input type="text" id="id" readonly>
+              <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
               <label for="inputMetodoLocomocao" class="form-label">Tipo</label>
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2">Cadastrar</button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
             <router-link to="/admin/metodolocomocaos" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -31,7 +31,7 @@
 
 <script setup>
 import services from "@/services";
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -47,7 +47,7 @@ onMounted(() => {
 
 async function getMetodoLocomocao(id) {
   try {
-    const { data } = await services.metodolocomocao.getById(id);
+    const { data } = await services.metodoLocomocao.getById(id);
     state.metodolocomocao = data;
   } catch (error) {
     console.error("Erro ao buscar metodolocomocao:", error);
@@ -57,14 +57,14 @@ async function getMetodoLocomocao(id) {
 async function novoMetodoLocomocao() {
   if (state.id) {
     try {
-      await services.metodolocomocao.update(state.id, state.metodolocomocao);
+      await services.metodoLocomocao.update(state.id, state.metodolocomocao);
       router.push("/admin/metodolocomocaos");
     } catch (error) {
       console.error("Erro ao alterar metodolocomocao:", error);
     }
   } else {
     try {
-      await services.metodolocomocao.salvar(state.metodolocomocao.tipo);
+      await services.metodoLocomocao.salvar(state.metodolocomocao.tipo);
       router.push("/admin/metodolocomocaos");
     } catch (error) {
       console.error("Erro ao criar metodolocomocao:", error);

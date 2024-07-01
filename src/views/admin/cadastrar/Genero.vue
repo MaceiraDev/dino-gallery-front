@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title">Novo Género</h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Genero</span> <span v-else>Cadastrar Genero</span></h5>
           </div>
         </div>
         <div class="line-form"></div>
@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
-              <input type="text" id="id" readonly>
+              <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
               <label for="inputGenero" class="form-label">Tipo</label>
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2">Cadastrar</button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
             <router-link to="/admin/generos" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -31,7 +31,7 @@
 
 <script setup>
 import services from "@/services";
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -48,27 +48,27 @@ onMounted(() => {
 
 async function getGenero(id) {
   try {
-    const { data } = await services.filo.getById(id);
-    state.filo = data;
+    const { data } = await services.genero.getById(id);
+    state.genero = data;
   } catch (error) {
-    console.error("Erro ao buscar filo:", error);
+    console.error("Erro ao buscar genero:", error);
   }
 }
 
 async function novoGenero() {
   if (state.id) {
     try {
-      await services.filo.update(state.id, state.filo);
-      router.push("/admin/filos");
+      await services.genero.update(state.id, state.genero);
+      router.push("/admin/generos");
     } catch (error) {
-      console.error("Erro ao alterar filo:", error);
+      console.error("Erro ao alterar genero:", error);
     }
   } else {
     try {
-      await services.filo.salvar(state.filo.tipo);
-      router.push("/admin/filos");
+      await services.genero.salvar(state.genero.tipo);
+      router.push("/admin/generos");
     } catch (error) {
-      console.error("Erro ao criar filo:", error);
+      console.error("Erro ao criar genero:", error);
     }
   }
 

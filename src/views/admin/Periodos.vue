@@ -7,7 +7,7 @@
                         <h5 class="card-title">Periodos</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">Novo Periodo</a>
+                        <a href="/admin/cadastrar/periodo" class="btn-new" title="New">Novo Periodo</a>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
                         <h5 class="card-title">Reinos</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">Novo Reino</a>
+                        <a href="/admin/cadastrar/reino" class="btn-new" title="New">Novo Reino</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-              <tr v-for="reino in state.reino" :key="reino.id">
+              <tr v-for="reino in state.reinos" :key="reino.id">
                 <td scope="row">{{ reino.id }}</td>
                 <td>{{ reino.tipo }}</td>
                 <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>

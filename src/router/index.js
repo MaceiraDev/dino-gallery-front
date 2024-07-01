@@ -53,7 +53,7 @@ const router = createRouter({
         },
         {
           path: 'sub-familias',
-          name: 'subfamilias',
+          name: 'sub-familias',
           component: () => import('../views/admin/SubFamilias.vue')
         },
         {
@@ -86,14 +86,67 @@ const router = createRouter({
           name: 'users',
           component: () => import('../views/admin/Users.vue')
         },
-        {
-          path: 'cadastrar/dieta',
-          name: 'cadastrar-dieta',
-          component: () => import('../views/admin/cadastrar/Dieta.vue')
-        },
+        // Rotas de alterar
         {
           path: 'alterar/dieta/:id',
           name: 'alterar-dieta',
+          component: () => import('../views/admin/cadastrar/Dieta.vue')
+        },
+        {
+          path: 'alterar/especie/:id',
+          name: 'alterar-especie',
+          component: () => import('../views/admin/cadastrar/Especie.vue')
+        },
+        {
+          path: 'alterar/dominio/:id',
+          name: 'alterar-dominio',
+          component: () => import('../views/admin/cadastrar/Dominio.vue')
+        },
+        {
+          path: 'alterar/familia/:id',
+          name: 'alterar-familia',
+          component: () => import('../views/admin/cadastrar/Familia.vue')
+        },
+        {
+          path: 'alterar/sub-familia/:id',
+          name: 'alterar-sub-familia',
+          component: () => import('../views/admin/cadastrar/SubFamilia.vue')
+        },
+        {
+          path: 'alterar/filo/:id',
+          name: 'alterar-filo',
+          component: () => import('../views/admin/cadastrar/Filo.vue')
+        },
+        {
+          path: 'alterar/genero/:id',
+          name: 'alterar-genero',
+          component: () => import('../views/admin/cadastrar/Genero.vue')
+        },
+        {
+          path: 'alterar/reino/:id',
+          name: 'alterar-reino',
+          component: () => import('../views/admin/cadastrar/Reino.vue')
+        },
+        {
+          path: 'alterar/metodoLocomocao/:id',
+          name: 'alterar-metodoLocomocao',
+          component: () => import('../views/admin/cadastrar/MetodoLocomocao.vue')
+        },
+        {
+          path: 'alterar/periodo/:id',
+          name: 'alterar-periodo',
+          component: () => import('../views/admin/cadastrar/Periodo.vue')
+        },
+        {
+          path: 'alterar/user/:id',
+          name: 'alterar-user',
+          component: () => import('../views/admin/cadastrar/User.vue')
+        },
+
+        // Rotas de cadastrar
+        {
+          path: 'cadastrar/dieta',
+          name: 'cadastrar-dieta',
           component: () => import('../views/admin/cadastrar/Dieta.vue')
         },
         {
@@ -102,19 +155,15 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Especie.vue')
         },
         {
-          path: 'alterar/especie/:id',
-          name: 'alterar-especie',
-          component: () => import('../views/admin/cadastrar/Especie.vue')
-        },
-        {
           path: 'cadastrar/dominio',
           name: 'cadastrar-dominio',
           component: () => import('../views/admin/cadastrar/Dominio.vue')
         },
         {
-          path: 'alterar/dominio/:id',
-          name: 'alterar-dominio',
-          component: () => import('../views/admin/cadastrar/Dominio.vue')
+          path: 'cadastrar/clado',
+          name: 'cadastrar-clado',
+          component: () => import('../views/admin/cadastrar/Clado.vue')
+
         },
         {
           path: 'cadastrar/familia',
@@ -127,11 +176,6 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/SubFamilia.vue')
         },
         {
-          path: 'cadastrar/clado',
-          name: 'cadastrar-clado',
-          component: () => import('../views/admin/cadastrar/Clado.vue')
-        },
-        {
           path: 'cadastrar/filo',
           name: 'cadastrar-filo',
           component: () => import('../views/admin/cadastrar/Filo.vue')
@@ -142,11 +186,6 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Genero.vue')
         },
         {
-          path: 'cadastrar/periodo',
-          name: 'cadastrar-periodo',
-          component: () => import('../views/admin/cadastrar/Periodo.vue')
-        },
-        {
           path: 'cadastrar/reino',
           name: 'cadastrar-reino',
           component: () => import('../views/admin/cadastrar/Reino.vue')
@@ -155,6 +194,11 @@ const router = createRouter({
           path: 'cadastrar/metodoLocomocao',
           name: 'cadastrar-metodoLocomocao',
           component: () => import('../views/admin/cadastrar/MetodoLocomocao.vue')
+        },
+        {
+          path: 'cadastrar/periodo',
+          name: 'cadastrar-periodo',
+          component: () => import('../views/admin/cadastrar/Periodo.vue')
         },
         {
           path: 'cadastrar/user',

@@ -7,7 +7,7 @@
                         <h5 class="card-title">Generos</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">Novo Genero</a>
+                        <a href="/admin/cadastrar/genero" class="btn-new" title="New">Novo Genero</a>
                     </div>
                 </div>
             </div>

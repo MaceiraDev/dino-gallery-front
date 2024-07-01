@@ -7,7 +7,7 @@
                         <h5 class="card-title">Users</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="#" class="btn-new" title="New">New Users</a>
+                        <a href="/admin/cadastrar/user" class="btn-new" title="New">New Users</a>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-              <tr v-for="User in state.User" :key="User.id">
+              <tr v-for="User in state.Users" :key="User.id">
                 <td scope="row">{{ User.id }}</td>
                 <td>{{ User.tipo }}</td>
                 <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>

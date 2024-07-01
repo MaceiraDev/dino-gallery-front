@@ -4,15 +4,15 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title">Novo Clado</h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Clado</span> <span v-else>Cadastrar Clado</span></h5>
           </div>
         </div>
         <div class="line-form"></div>
         <form @submit.prevent="novoClado">
           <div class="row">
-            <div class="col-sm-1">
+            <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
-              <input type="text" id="id" readonly>
+              <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
               <label for="inputClado" class="form-label">Tipo</label>
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2">Cadastrar</button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
             <router-link to="/admin/clados" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -31,7 +31,7 @@
 
 <script setup>
 import services from "@/services";
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
