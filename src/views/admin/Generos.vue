@@ -4,10 +4,10 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h5 class="card-title">Generos</h5>
+                        <h5 class="card-title">Gêneros</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="/admin/cadastrar/genero" class="btn-new" title="New">Novo Genero</a>
+                        <router-link to="/admin/cadastrar/genero" class="btn-new" title="New">Novo Genero</router-link>
                     </div>
                 </div>
             </div>

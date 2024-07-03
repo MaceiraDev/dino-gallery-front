@@ -7,6 +7,7 @@ import familiaService from "./familia";
 import subFamiliaService from "./subFamilia";
 import metodoLocomocaoService from "./metodoLocomocao";
 import filoService from "./filo";
+import periodoService from "./periodo";
 import generoService from "./genero";
 import userService from "./user";
 const API_URL = "http://localhost:8070";
@@ -25,5 +26,6 @@ export default {
   filo: filoService(httpClient),
   genero: generoService(httpClient),
   metodoLocomocao: metodoLocomocaoService(httpClient),
+  periodo: periodoService(httpClient),
   user: userService(httpClient)
 }

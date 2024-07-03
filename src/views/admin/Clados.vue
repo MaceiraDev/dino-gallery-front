@@ -7,7 +7,7 @@
             <h5 class="card-title">Clado</h5>
           </div>
           <div class="col-md-6 text-end">
-            <a href="/admin/cadastrar/clado" class="btn-new" title="New">Novo Clado</a>
+            <router-link to="/admin/cadastrar/clado" class="btn-new" title="New">Novo Clado</router-link>
           </div>
         </div>
       </div>

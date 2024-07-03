@@ -4,7 +4,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title"><span v-if="state.id">Alterar Periodo</span> <span v-else>Cadastrar Periodo</span></h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Periodo</span> <span v-else>Cadastrar Periodo</span>
+            </h5>
           </div>
         </div>
         <div class="line-form"></div>
@@ -14,13 +15,18 @@
               <label for="id" class="form-label">ID</label>
               <input type="text" v-model="state.id" id="id" readonly>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <label for="inputPeriodo" class="form-label">Tipo</label>
               <input v-model="state.periodo.tipo" type="text" id="inputPeriodo" required>
             </div>
+            <div class="col-sm-6">
+              <label for="date" class="form-label">Data do Período</label>
+              <input v-model="state.periodo.data_periodo" type="text" id="date" required>
+            </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span
+                v-else>Cadastrar</span></button>
             <router-link to="/admin/Periodos" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -36,7 +42,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   periodo: { tipo: "" },
+  periodo: { tipo: "", data_periodo: "" },
 });
 
 
@@ -66,7 +72,7 @@ async function novoPeriodo() {
     }
   } else {
     try {
-      await services.periodo.salvar(state.periodo.tipo);
+      await services.periodo.salvar(state.periodo);
       router.push("/admin/periodos");
     } catch (error) {
       console.error("Erro ao criar periodo:", error);

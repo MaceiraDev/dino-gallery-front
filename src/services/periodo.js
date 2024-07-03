@@ -19,16 +19,16 @@ export default (httpClient) => ({
       throw error;
     }
   },
-  salvar: async (tipo) => {
+  salvar: async (periodo) => {
     try {
-      const response = await httpClient.post('/periodo/salvar', { tipo });
+      const response = await httpClient.post('/periodo/salvar', { periodo });
       return {
         data: response.data
       }
     }
     catch (error) {
       console.error('Erro ao salvar periodo:', error);
-      throw error; 
+      throw error;
     }
   },
   delete: async (id) => {
@@ -40,7 +40,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao deletar periodo:', error);
-      throw error; 
+      throw error;
     }
   }
 });
