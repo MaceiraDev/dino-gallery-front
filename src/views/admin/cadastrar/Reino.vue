@@ -18,6 +18,10 @@
               <label for="inputReino" class="form-label">Tipo</label>
               <input v-model="state.reino.tipo" type="text" id="inputReino" required>
             </div>
+            <div class="col-sm-6">
+              <label for="date" class="form-label">Data Reino</label>
+              <input v-model="state.reino.data_reino" type="text" id="date" required>
+            </div>
           </div>
           <div class="text-end mt-3">
             <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
@@ -36,8 +40,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   reino: { tipo: "",
-           data_reino: ""    },
+   reino: { tipo: "", data_reino: ""},
 });
 
 onMounted(() => {

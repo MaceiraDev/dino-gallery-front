@@ -9,7 +9,9 @@ import metodoLocomocaoService from "./metodoLocomocao";
 import filoService from "./filo";
 import periodoService from "./periodo";
 import generoService from "./genero";
+import reinoService from "./reino";
 import userService from "./user";
+
 const API_URL = "http://localhost:8070";
 
 const httpClient = axios.create({
@@ -27,5 +29,6 @@ export default {
   genero: generoService(httpClient),
   metodoLocomocao: metodoLocomocaoService(httpClient),
   periodo: periodoService(httpClient),
+  reino: reinoService(httpClient),
   user: userService(httpClient)
 }

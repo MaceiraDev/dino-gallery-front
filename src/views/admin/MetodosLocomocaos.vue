@@ -7,7 +7,7 @@
                         <h5 class="card-title">Metodo de Locomoção</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="/admin/cadastrar/metodosLocomocao" class="btn-new" title="New">Novo Método</a>
+                        <RouterLink to="/admin/cadastrar/metodo-locomocao" class="btn-new" title="New">Novo Método</RouterLink>
                     </div>
                 </div>
             </div>

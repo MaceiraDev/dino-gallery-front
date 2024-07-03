@@ -86,6 +86,7 @@ const router = createRouter({
           name: 'users',
           component: () => import('../views/admin/Users.vue')
         },
+
         // Rotas de alterar
         {
           path: 'alterar/dieta/:id',
@@ -128,8 +129,8 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Reino.vue')
         },
         {
-          path: 'alterar/metodoLocomocao/:id',
-          name: 'alterar-metodoLocomocao',
+          path: 'alterar/metodos-locomocao/:id',
+          name: 'alterar-metodos-locomocao',
           component: () => import('../views/admin/cadastrar/MetodoLocomocao.vue')
         },
         {
@@ -191,8 +192,8 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Reino.vue')
         },
         {
-          path: 'cadastrar/metodoLocomocao',
-          name: 'cadastrar-metodoLocomocao',
+          path: 'cadastrar/metodo-locomocao',
+          name: 'cadastrar-metodo-locomocao',
           component: () => import('../views/admin/cadastrar/MetodoLocomocao.vue')
         },
         {

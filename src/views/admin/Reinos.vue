@@ -7,7 +7,7 @@
                         <h5 class="card-title">Reinos</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="/admin/cadastrar/reino" class="btn-new" title="New">Novo Reino</a>
+                        <RouterLink to="/admin/cadastrar/reino" class="btn-new" title="New">Novo Reino</RouterLink>
                     </div>
                 </div>
             </div>
