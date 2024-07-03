@@ -7,7 +7,7 @@
                         <h5 class="card-title">Filos</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="/admin/cadastrar/filo" class="btn-new" title="New">Novo Filo</a>
+                        <router-link to="/admin/cadastrar/filo" class="btn-new" title="New">Novo Filo</router-link>
                     </div>
                 </div>
             </div>
