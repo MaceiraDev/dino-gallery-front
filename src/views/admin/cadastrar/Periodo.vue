@@ -17,11 +17,11 @@
             </div>
             <div class="col-sm-4">
               <label for="inputPeriodo" class="form-label">Tipo</label>
-              <input v-model="state.periodo.tipo" type="text" id="inputPeriodo" required>
+              <input v-model="state.tipo" type="text" id="inputPeriodo" required>
             </div>
             <div class="col-sm-6">
               <label for="date" class="form-label">Data do Período</label>
-              <input v-model="state.periodo.data_periodo" type="text" id="date" required>
+              <input v-model="state.data_periodo" type="text" id="date" required>
             </div>
           </div>
           <div class="text-end mt-3">
@@ -42,7 +42,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-  periodo: { tipo: "", data_periodo: "" },
+   tipo: "", data_periodo: "" ,
 });
 
 
@@ -63,22 +63,17 @@ async function getPeriodo(id) {
 }
 
 async function novoPeriodo() {
-  if (state.id) {
-    try {
+  try {
+    if (state.id) {
       await services.periodo.update(state.id, state.periodo);
       router.push("/admin/periodos");
-    } catch (error) {
-      console.error("Erro ao alterar periodo:", error);
-    }
-  } else {
-    try {
-      await services.periodo.salvar(state.periodo);
+    } else {
+      await services.periodo.salvar({ tipo: state.tipo, dataPeriodo: state.data_periodo });
       router.push("/admin/periodos");
-    } catch (error) {
-      console.error("Erro ao criar periodo:", error);
     }
+  } catch (error) {
+    console.error("Erro ao salvar/revisar periodo:", error);
   }
-
 }
 
 </script>

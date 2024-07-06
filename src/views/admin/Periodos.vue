@@ -25,12 +25,20 @@
         <tr v-for="periodo in state.periodos" :key="periodo.id">
           <td scope="row">{{ periodo.id }}</td>
           <td>{{ periodo.tipo }}</td>
-          <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
-            <a @click="deletePeriodo(periodo.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+          <td>{{ periodo.data_periodo }}</td>
+          <td>
+            <a href="" class="btn btn-primary" title="Alterar">
+              <i class="bi bi-pencil"></i>
+            </a>
+            <a @click="deletePeriodo(periodo.id)" class="btn btn-danger" title="Deletar">
+              <i class="bi bi-trash"></i>
+            </a>
           </td>
         </tr>
       </tbody>
     </table>
+    
+    
   </main>
 </template>
 

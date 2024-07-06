@@ -15,20 +15,20 @@ export default (httpClient) => ({
       }
     }
     catch (error) {
-      console.error('Erro ao atualizar metodo de locomoção:', error);
+      console.error('Erro ao atualizar periodo:', error);
       throw error;
     }
   },
-  salvar: async (periodo) => {
+  salvar: async ({tipo, dataPeriodo}) => {
     try {
-      const response = await httpClient.post('/periodo/salvar', { periodo });
+      const response = await httpClient.post('/periodo/salvar', { tipo, dataPeriodo });
       return {
         data: response.data
       }
     }
     catch (error) {
       console.error('Erro ao salvar periodo:', error);
-      throw error;
+      throw error; 
     }
   },
   delete: async (id) => {
@@ -40,7 +40,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao deletar periodo:', error);
-      throw error;
+      throw error; 
     }
   }
 });

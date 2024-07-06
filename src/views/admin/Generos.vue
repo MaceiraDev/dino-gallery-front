@@ -45,7 +45,7 @@ const state = reactive({
 async function getGeneros() {
   try {
     const { data } = await services.genero.getAll();
-    state.genero = data;
+    state.generos = data;
   } catch (error) {
     console.error('Erro ao buscar os generos:', error);
   }

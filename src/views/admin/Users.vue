@@ -45,7 +45,7 @@ const state = reactive({
 
 async function getUsers() {
   try {
-    const { data } = await services.Users.getAll();
+    const { data } = await services.user.getAll();
     state.Users = data;
   } catch (error) {
     console.error('Erro ao buscar os usuarios:', error);
