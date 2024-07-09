@@ -20,12 +20,15 @@
           <th scope="col">Tipo</th>
           <th scope="col">Opções</th>
         </tr>
-      </thead>
+      </thead>     
       <tbody>
         <tr v-for="clado in state.clados" :key="clado.id">
           <td scope="row">{{ clado.id }}</td>
           <td>{{ clado.tipo }}</td>
-          <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+          <td> <router-link :to="{ name: 'alterar-clado', params: { id: clado.id }, }" class="btn btn-primary"
+              title="Alterar">
+              <i class="bi bi-pencil"></i>
+            </router-link>
             <a @click="deleteClado(clado.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
           </td>
         </tr>

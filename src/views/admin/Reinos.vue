@@ -25,7 +25,10 @@
               <tr v-for="reino in state.reinos" :key="reino.id">
                 <td scope="row">{{ reino.id }}</td>
                 <td>{{ reino.tipo }}</td>
-                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                <td>{{ reino.dataReino }}</td>
+                <td> <router-link :to="{ name: 'alterar-reino', params: { id: reino.id }, }" class="btn btn-primary"
+                  title="Alterar"><i class="bi bi-pencil"></i>
+                </router-link>
                   <a @click="deleteReino(reino.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
                 </td>
               </tr>
@@ -36,7 +39,7 @@
 
 <script setup>
 import services from '@/services';
-import { ref, onMounted, reactive } from 'vue';
+import {  onMounted, reactive } from 'vue';
 
 const state = reactive({
   reinos: [],

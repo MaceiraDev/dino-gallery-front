@@ -69,7 +69,7 @@ async function novoReino() {
     }
   } else {
     try {
-      await services.reino.salvar(state.reino.tipo);
+      await services.reino.salvar({ tipo: state.tipo, dataReino: state.data_Reino });
       router.push("/admin/reinos");
     } catch (error) {
       console.error("Erro ao criar reino:", error);

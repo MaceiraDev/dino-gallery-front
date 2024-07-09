@@ -25,7 +25,7 @@
         <tr v-for="periodo in state.periodos" :key="periodo.id">
           <td scope="row">{{ periodo.id }}</td>
           <td>{{ periodo.tipo }}</td>
-          <td>{{ periodo.data_periodo }}</td>
+          <td>{{ periodo.dataPeriodo }}</td>
           <td>
             <a href="" class="btn btn-primary" title="Alterar">
               <i class="bi bi-pencil"></i>

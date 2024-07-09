@@ -26,7 +26,9 @@
               <tr v-for="User in state.Users" :key="User.id">
                 <td scope="row">{{ User.id }}</td>
                 <td>{{ User.tipo }}</td>
-                <td><a href="" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i></a>
+                <td> <router-link :to="{ name: 'alterar-User', params: { id: User.id }, }" class="btn btn-primary"
+                  title="Alterar"><i class="bi bi-pencil"></i>
+                </router-link>
                   <a @click="deleteUsers(User.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
                 </td>
               </tr>
