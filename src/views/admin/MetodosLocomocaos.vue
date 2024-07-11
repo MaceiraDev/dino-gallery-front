@@ -25,7 +25,7 @@
         <tr v-for="metodosLocomocao in state.metodosLocomocao" :key="metodosLocomocao.id">
           <td scope="row">{{ metodosLocomocao.id }}</td>
           <td>{{ metodosLocomocao.tipo }}</td>
-          <td><router-link :to="{ name: 'alterar-metodosLocomocao', params: { id: metodosLocomocao.id }, }"
+          <td><router-link :to="{ name: 'alterar-metodos-locomocao', params: { id: metodosLocomocao.id }, }"
               class="btn btn-primary" title="Alterar"><i class="bi bi-pencil"></i>
             </router-link>
             <a @click="deleteMetodosLocomocao(metodosLocomocao.id)" class="btn btn-danger" title="Deletar"><i

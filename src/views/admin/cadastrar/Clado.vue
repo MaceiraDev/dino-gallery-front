@@ -20,7 +20,8 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span
+                v-else>Cadastrar</span></button>
             <router-link to="/admin/clados" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -36,7 +37,8 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   clado: { tipo: "" },
+  id: "",
+  clado: { tipo: "" },
 });
 
 onMounted(() => {

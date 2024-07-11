@@ -25,7 +25,7 @@
         <tr v-for="familia in state.familias" :key="familia.id">
           <td scope="row">{{ familia.id }}</td>
           <td>{{ familia.tipo }}</td>
-          <td> <router-link :to="{ name: 'alterar-familia ', params: { id:  familia.id }, }" class="btn btn-primary" title="Alterar">
+          <td> <router-link :to="{ name: 'alterar-familia', params: { id:  familia.id }, }" class="btn btn-primary" title="Alterar">
               <i class="bi bi-pencil"></i>
             </router-link>
             <a @click="deleteFamilia(familia.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>

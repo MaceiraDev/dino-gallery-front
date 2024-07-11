@@ -99,6 +99,11 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Especie.vue')
         },
         {
+          path: 'alterar/clado/:id',
+          name: 'alterar-clado',
+          component: () => import('../views/admin/cadastrar/Clado.vue')
+        },
+        {
           path: 'alterar/dominio/:id',
           name: 'alterar-dominio',
           component: () => import('../views/admin/cadastrar/Dominio.vue')

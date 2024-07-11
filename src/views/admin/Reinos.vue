@@ -19,6 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Data</th>
+                    <th scope="col">Opções</th>
                 </tr>
             </thead>
             <tbody>
