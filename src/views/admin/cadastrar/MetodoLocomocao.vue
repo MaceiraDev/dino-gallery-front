@@ -4,7 +4,8 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-6">
-            <h5 class="card-title"><span v-if="state.id">Alterar Metodo de Locomoção</span> <span v-else>Cadastrar Metodo de Locomoção</span></h5>
+            <h5 class="card-title"><span v-if="state.id">Alterar Metodo de Locomoção</span> <span v-else>Cadastrar
+                Metodo de Locomoção</span></h5>
           </div>
         </div>
         <div class="line-form"></div>
@@ -20,7 +21,8 @@
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span
+                v-else>Cadastrar</span></button>
             <router-link to="/admin/metodos-de-locomocaos" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -36,7 +38,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   metodolocomocao: { tipo: "" },
+  metodolocomocao: { tipo: "" },
 });
 onMounted(() => {
   if (router.currentRoute.value.params.id != undefined) {
@@ -58,14 +60,14 @@ async function novoMetodoLocomocao() {
   if (state.id) {
     try {
       await services.metodoLocomocao.update(state.id, state.metodolocomocao);
-      router.push("/admin/metodolocomocaos");
+      router.push("/admin/metodos-de-locomocaos");
     } catch (error) {
       console.error("Erro ao alterar metodolocomocao:", error);
     }
   } else {
     try {
       await services.metodoLocomocao.salvar(state.metodolocomocao.tipo);
-      router.push("/admin/metodolocomocaos");
+      router.push("/admin/metodos-de-locomocaos");
     } catch (error) {
       console.error("Erro ao criar metodolocomocao:", error);
     }

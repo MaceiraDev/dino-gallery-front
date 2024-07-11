@@ -22,13 +22,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="metodosLocomocao in state.metodosLocomocao" :key="metodosLocomocao.id">
-          <td scope="row">{{ metodosLocomocao.id }}</td>
-          <td>{{ metodosLocomocao.tipo }}</td>
-          <td><router-link :to="{ name: 'alterar-metodos-locomocao', params: { id: metodosLocomocao.id }, }"
-              class="btn btn-primary" title="Alterar"><i class="bi bi-pencil"></i>
+        <tr v-for="metodo in state.metodos" :key="metodo.id">
+          <td scope="row">{{ metodo.id }}</td>
+          <td>{{ metodo.tipo }}</td>
+          <td>
+            <router-link :to="{ name: 'alterar-metodos-locomocao', params: { id: metodo.id }, }" class="btn btn-primary"
+              title="Alterar"><i class="bi bi-pencil"></i>
             </router-link>
-            <a @click="deleteMetodosLocomocao(metodosLocomocao.id)" class="btn btn-danger" title="Deletar"><i
+            <a @click="deleteMetodosLocomocao(metodo.id)" class="btn btn-danger" title="Deletar"><i
                 class="bi bi-trash"></i></a>
           </td>
         </tr>
@@ -42,13 +43,13 @@ import services from '@/services';
 import { ref, onMounted, reactive } from 'vue';
 
 const state = reactive({
-  metodosLocomocao: [],
+  metodos: [],
 })
 
 async function getMetodosLocomocao() {
   try {
-    const { data } = await services.filo.getAll();
-    state.metodosLocomocao = data;
+    const { data } = await services.metodoLocomocao.getAll();
+    state.metodos = data;
   } catch (error) {
     console.error('Erro ao buscar os metodos de locomoção:', error);
   }
@@ -58,7 +59,7 @@ async function deleteMetodosLocomocao(id) {
   if (!confirm('Tem certeza que deseja excluir este Metodo de Locomoção?')) return;
   console.log(id);
   try {
-    await services.metodosLocomocao.delete(id);
+    await services.metodoLocomocao.delete(id);
   } catch (error) {
     console.error('Erro ao criar metodo de locomoção:', error);
   }
