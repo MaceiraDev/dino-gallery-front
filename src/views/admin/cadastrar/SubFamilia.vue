@@ -48,7 +48,7 @@ onMounted(() => {
 
 async function getSubfamilia(id) {
   try {
-    const { data } = await services.sub-familia.getById(id);
+    const { data } = await services.subFamilia.getById(id);
     state.subFamilia = data;
   } catch (error) {
     console.error("Erro ao buscar sub-familia:", error);

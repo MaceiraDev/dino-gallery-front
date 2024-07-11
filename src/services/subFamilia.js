@@ -9,7 +9,7 @@ export default (httpClient) => ({
   },
   update: async (id, subFamilia) => {
     try {
-      const response = await httpClient.put('/sub-familia/atualizar/' + id, sub-familia);
+      const response = await httpClient.put('/sub-familia/atualizar/' + id, subFamilia);
       return {
         data: response.data
       }
