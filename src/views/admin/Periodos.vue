@@ -28,18 +28,14 @@
           <td>{{ periodo.tipo }}</td>
           <td>{{ periodo.dataPeriodo }}</td>
           <td>
-            <a href="" class="btn btn-primary" title="Alterar">
-              <i class="bi bi-pencil"></i>
-            </a>
-            <a @click="deletePeriodo(periodo.id)" class="btn btn-danger" title="Deletar">
-              <i class="bi bi-trash"></i>
-            </a>
+            <router-link :to="{ name: 'alterar-periodo', params: { id: periodo.id }, }" class="btn btn-primary" title="Alterar"> <i class="bi bi-pencil"></i> </router-link>
+            <a @click="deletePeriodo(periodo.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
           </td>
         </tr>
       </tbody>
     </table>
-    
-    
+
+
   </main>
 </template>
 

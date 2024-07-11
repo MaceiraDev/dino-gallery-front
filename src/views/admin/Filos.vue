@@ -26,7 +26,8 @@
           <td scope="row">{{ filo.id }}</td>
           <td>{{ filo.tipo }}</td>
           <td>
-            <router-link :to="{ name: 'alterar-filo',  params: { id: filo.id },}" class="btn btn-primary" title="Alterar"><i class="bi bi-pencil"></i>
+            <router-link :to="{ name: 'alterar-filo', params: { id: filo.id }, }" class="btn btn-primary"
+              title="Alterar"><i class="bi bi-pencil"></i>
             </router-link>
             <a @click="deleteFilo(filo.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
           </td>

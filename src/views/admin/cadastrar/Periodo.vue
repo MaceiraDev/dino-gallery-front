@@ -17,15 +17,15 @@
             </div>
             <div class="col-sm-4">
               <label for="inputPeriodo" class="form-label">Tipo</label>
-              <input v-model="state.tipo" type="text" id="inputPeriodo" required>
+              <input v-model="state.periodo.tipo" type="text" id="inputPeriodo" required>
             </div>
             <div class="col-sm-6">
               <label for="date" class="form-label">Data do Período</label>
-              <input v-model="state.data_periodo" type="text" id="date" required>
+              <input v-model="state.periodo.dataPeriodo" type="text" id="date" required>
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span><span
                 v-else>Cadastrar</span></button>
             <router-link to="/admin/Periodos" class="btn btn-danger">Cancelar</router-link>"
           </div>
@@ -42,7 +42,10 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   tipo: "", data_periodo: "" ,
+  id: "",
+  periodo: {
+    tipo: "", dataPeriodo: "",
+  }
 });
 
 
