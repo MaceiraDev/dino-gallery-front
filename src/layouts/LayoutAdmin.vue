@@ -10,10 +10,10 @@
       </nav>
       <div class="container-fluid">
         <nav class="row">
-          <div class="col-2">
+          <div class="col-xl-2 col-md-3 col-sm-4">
             <NavigationPainel />
           </div>
-          <div class="col-10">
+          <div class="col-xl-10 col-md-9 col-sm-8">
             <router-view />
           </div>
         </nav>
@@ -63,5 +63,4 @@ components: {
 .admin-layout input:focus {
   border: 1px solid #fff;
 }
-
 </style>
