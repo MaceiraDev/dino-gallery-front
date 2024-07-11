@@ -17,11 +17,11 @@ export default (httpClient) => ({
     catch (error) {
       console.error('Erro ao atualizar reino:', error);
       throw error;
-    } 
+    }
   },
-  salvar: async ({reino, dataReino }) => {
+  salvar: async ({tipo}) => {
     try {
-      const response = await httpClient.post('/reino/salvar', { reino, dataReino });
+      const response = await httpClient.post('/reino/salvar', { tipo });
       return {
         data: response.data
       }

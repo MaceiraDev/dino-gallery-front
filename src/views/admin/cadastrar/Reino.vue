@@ -18,13 +18,10 @@
               <label for="inputReino" class="form-label">Tipo</label>
               <input v-model="state.reino.tipo" type="text" id="inputReino" required>
             </div>
-            <div class="col-sm-6">
-              <label for="date" class="form-label">Data Reino</label>
-              <input v-model="state.reino.data_reino" type="text" id="date" required>
-            </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span> <span v-else>Cadastrar</span></button>
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span><span
+                v-else>Cadastrar</span></button>
             <router-link to="/admin/Reinos" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
@@ -40,7 +37,8 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const state = reactive({
-   reino: { tipo: "", data_reino: ""},
+  id: "",
+  reino: { tipo: "", },
 });
 
 onMounted(() => {
@@ -69,7 +67,7 @@ async function novoReino() {
     }
   } else {
     try {
-      await services.reino.salvar({ tipo: state.tipo, dataReino: state.data_Reino });
+      await services.reino.salvar({ tipo: state.reino.tipo });
       router.push("/admin/reinos");
     } catch (error) {
       console.error("Erro ao criar reino:", error);
