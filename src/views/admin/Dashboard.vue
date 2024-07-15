@@ -2,40 +2,42 @@
 </script>
 <template>
   <main>
-    <div class="row">
-      <div class="col-md-3">
-        <div class="quad_icon">
-          <div class="content">
-            <i class="bi bi-basket" style="color: red;"></i>
-            <p class="number">1</p>
-            <p class="text">Novos Pedidos</p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="quad_icon">
+            <div class="content">
+              <i class="bi bi-basket" style="color: red;"></i>
+              <p class="number">1</p>
+              <p class="text">Novos Pedidos</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="quad_icon">
-          <div class="content">
-            <img id="png-rex" src="@/assets/imagens/painel/tiranossauro-rex.png" alt="users">
-            <p class="number">2</p>
-            <p class="text">Total de Dinossauros</p>
+        <div class="col-md-3">
+          <div class="quad_icon">
+            <div class="content">
+              <img id="png-rex" src="@/assets/imagens/painel/tiranossauro-rex.png" alt="users">
+              <p class="number">2</p>
+              <p class="text">Total de Dinossauros</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="quad_icon">
-          <div class="content">
-            <i class="bi bi-box-seam" style="color: blue;"></i>
-            <p class="number">3</p>
-            <p class="text">Total de Produtos</p>
+        <div class="col-md-3">
+          <div class="quad_icon">
+            <div class="content">
+              <i class="bi bi-box-seam" style="color: blue;"></i>
+              <p class="number">3</p>
+              <p class="text">Total de Produtos</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="quad_icon">
-          <div class="content">
-            <i class="bi bi-envelope-arrow-down-fill" style="color: purple;"></i>
-            <p class="number">4</p>
-            <p class="text">Contatos Não Lidos</p>
+        <div class="col-md-3">
+          <div class="quad_icon">
+            <div class="content">
+              <i class="bi bi-envelope-arrow-down-fill" style="color: purple;"></i>
+              <p class="number">4</p>
+              <p class="text">Contatos Não Lidos</p>
+            </div>
           </div>
         </div>
       </div>
@@ -47,10 +49,12 @@
 main {
   margin: 50px 10px 10px 10px;
 }
-#png-rex{
+
+#png-rex {
   width: 55px;
   height: 55px;
 }
+
 .dashboard-banner {
   background-image: url("/images/admin/zodiac.jpeg");
   background-size: cover;

@@ -3,18 +3,18 @@
 
   <body>
     <div class="admin-layout">
-      <nav class="navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Galeria Dinossauro</a>
-        </div>
-      </nav>
+
       <div class="container-fluid">
         <nav class="row">
-          <div class="col-xl-2 col-md-3 col-sm-4">
+          <div class="col-xl-2 col-md-3 col-sm-4 pe-0">
             <NavigationPainel />
           </div>
-          <div class="col-xl-10 col-md-9 col-sm-8">
-            <router-view />
+          <div class="col-xl-10 col-md-9 col-sm-8 px-0">
+            <nav class="navbar">
+              <div class="div_imagem">
+                <img id="logo_painel" src="./../assets/imagens/dino_logo.png" alt="Logo Dino Gallery" />
+              </div>
+            </nav> <router-view />
           </div>
         </nav>
       </div>
@@ -62,5 +62,16 @@ components: {
 
 .admin-layout input:focus {
   border: 1px solid #fff;
+}
+
+.div_imagem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+#logo_painel {
+  width: 150px;
 }
 </style>
