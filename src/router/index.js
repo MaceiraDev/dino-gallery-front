@@ -27,6 +27,11 @@ const router = createRouter({
           component: () => import('../views/admin/Dashboard.vue')
         },
         {
+          path: 'dinossauros',
+          name: 'dinossauros',
+          component: () => import('../views/admin/Dinossauros.vue')
+        },
+        {
           path: 'dietas',
           name: 'dietas',
           component: () => import('../views/admin/Dietas.vue')
@@ -150,6 +155,11 @@ const router = createRouter({
         },
 
         // Rotas de cadastrar
+        {
+          path: 'cadastrar/dinossauro',
+          name: 'cadastrar-dinossauro',
+          component: () => import('../views/admin/cadastrar/Dinossauro.vue')
+        },
         {
           path: 'cadastrar/dieta',
           name: 'cadastrar-dieta',

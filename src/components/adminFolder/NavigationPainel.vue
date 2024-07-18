@@ -15,6 +15,10 @@
         @click="setActive('dashboard1')">
         <i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span>
       </router-link>
+      <router-link to="/admin/dinossauros" class="nav" :class="{ 'nav-selected': activeLink === 'dinossauros' }"
+        @click="setActive('dinossauros')">
+        <i class="bi bi-gitlab"></i><span>Dinossauros</span>
+      </router-link>
       <router-link to="/admin/dietas" class="nav" :class="{ 'nav-selected': activeLink === 'dietas' }"
         @click="setActive('dietas')">
         <i class="bi bi-lungs-fill"></i><span>Dietas</span>
