@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="line-form"></div>
-        <form @submit.prevent="novaDieta">
+        <form @submit.prevent="novoDino">
           <div class="row">
             <div class="col-sm-1" v-if="state.id">
               <label for="id" class="form-label">ID</label>
@@ -28,11 +28,11 @@
             </div>
             <div class="col-sm-2">
               <label for="dieta" class="form-label">Dieta Principal</label>
-              <input type="text" id="dieta" required v-model="state.dino.dieta_principal">
+              <input type="text" id="dieta" required v-model="state.dino.dietaPrincipal">
             </div>
             <div class="col-sm-2">
               <label for="nature" class="form-label">Habitat Natural</label>
-              <input type="text" id="nature" required v-model="state.dino.habitat_natural">
+              <input type="text" id="nature" required v-model="state.dino.habitatNatural">
             </div>
             <div class="col-sm-2">
               <label for="presa" class="form-label">Presa/Predador</label>
@@ -43,55 +43,55 @@
             </div>
             <div class="col-sm-2">
               <label for="dieta" class="form-label">Dieta</label>
-              <select class="form-label" v-model="state.dino.dieta_id">
+              <select class="form-label" v-model="state.dino.dietaId">
                 <option v-for="dieta in state.dietas" :key="dieta.id" :value="dieta.id">{{ dieta.tipo }}</option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="periodo" class="form-label">Período</label>
-              <select id="periodo" class="form-label" v-model="state.dino.periodo_id">
+              <select id="periodo" class="form-label" v-model="state.dino.periodoId">
                 <option v-for="periodo in state.periodos" :key="periodo.id" :value="periodo.id">{{ periodo.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="dominio" class="form-label">Dominío</label>
-              <select id="dominio" class="form-label" v-model="state.dino.dominio_id">
+              <select id="dominio" class="form-label" v-model="state.dino.dominioId">
                 <option v-for="dominio in state.dominios" :key="dominio.id" :value="dominio.id">{{ dominio.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="reino" class="form-label">Reino</label>
-              <select id="reino" class="form-label" v-model="state.dino.reino_id">
+              <select id="reino" class="form-label" v-model="state.dino.reinoId">
                 <option v-for="reino in state.reinos" :key="reino.id" :value="reino.id">{{ reino.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="filo" class="form-label">Filo</label>
-              <select id="filo" class="form-label" v-model="state.dino.filo_id">
+              <select id="filo" class="form-label" v-model="state.dino.filoId">
                 <option v-for="filo in state.filos" :key="filo.id" :value="filo.id">{{ filo.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="clado" class="form-label">Clado</label>
-              <select id="clado" class="form-label" v-model="state.dino.clado_id">
+              <select id="clado" class="form-label" v-model="state.dino.cladoId">
                 <option v-for="clado in state.clados" :key="clado.id" :value="clado.id">{{ clado.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="familia" class="form-label">Família</label>
-              <select id="familia" class="form-label" v-model="state.dino.familia_id">
+              <select id="familia" class="form-label" v-model="state.dino.familiaId">
                 <option v-for="familia in state.familias" :key="familia.id" :value="familia.id">{{ familia.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="sub" class="form-label">SubFamília</label>
-              <select id="sub" class="form-label" v-model="state.dino.sub_familia_id">
+              <select id="sub" class="form-label" v-model="state.dino.subFamiliaId">
                 <option v-for="sub in state.subFamilias" :key="sub.id" :value="sub.id">{{ sub.tipo }}
                 </option>
               </select>
@@ -99,21 +99,21 @@
 
             <div class="col-sm-2">
               <label for="generos" class="form-label">Gênero</label>
-              <select id="generos" class="form-label" v-model="state.dino.genero_id">
+              <select id="generos" class="form-label" v-model="state.dino.generoId">
                 <option v-for="genero in state.generos" :key="genero.id" :value="genero.id">{{ genero.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-2">
               <label for="especie" class="form-label">Espécie</label>
-              <select id="especie" class="form-label" v-model="state.dino.especie_id">
+              <select id="especie" class="form-label" v-model="state.dino.especieId">
                 <option v-for="especie in state.especies" :key="especie.id" :value="especie.id">{{ especie.tipo }}
                 </option>
               </select>
             </div>
             <div class="col-sm-3">
               <label for="loco" class="form-label">Método de Locomoção</label>
-              <select id="loco" class="form-label" v-model="state.dino.metodo_id">
+              <select id="loco" class="form-label" v-model="state.dino.metodoLocomocaoId">
                 <option v-for="metodo in state.metodos" :key="metodo.id" :value="metodo.id">{{ metodo.tipo }}
                 </option>
               </select>
@@ -143,20 +143,20 @@ const state = reactive({
     nome: "",
     tamanho: "",
     peso: "",
-    dieta_principal: "",
-    habitat_natural: "",
+    dietaPrincipal: "",
+    habitatNatural: "",
     presa_predador: "",
-    dieta_id: "",
-    periodo_id: "",
-    dominio_id: "",
-    reino_id: "",
-    filo_id: "",
-    clado_id: "",
-    familia_id: "",
-    metodo_id: "",
-    sub_familia_id: "",
-    genero_id: "",
-    especie_id: "",
+    dietaId: "",
+    periodoId: "",
+    dominioId: "",
+    reinoId: "",
+    filoId: "",
+    cladoId: "",
+    familiaId: "",
+    metodoLocomocaoId: "",
+    subFamiliaId: "",
+    generoId: "",
+    especieId: "",
   },
 
   //Campos estrangeiros
@@ -261,20 +261,20 @@ async function getCampos() {
   }
 }
 
-async function novaDieta() {
+async function novoDino() {
   if (state.id) {
     try {
-      await services.dieta.update(state.id, state.dieta);
-      router.push("/admin/dietas");
+      await services.dino.update(state.id, state.dieta);
+      router.push("/admin/dinossauros");
     } catch (error) {
       console.error("Erro ao alterar dieta:", error);
     }
   } else {
     try {
-      await services.dieta.salvar(state.dieta.tipo);
-      router.push("/admin/dietas");
+      await services.dino.salvar(state.dino);
+      router.push("/admin/Dinossauros");
     } catch (error) {
-      console.error("Erro ao criar dieta:", error);
+      console.error("Erro ao criar dino:", error);
     }
   }
 

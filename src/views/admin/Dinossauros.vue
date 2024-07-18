@@ -17,14 +17,20 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Tipo</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Espécie</th>
+          <th scope="col">Tamanho</th>
+          <th scope="col">Dieta Principal</th>
           <th scope="col">Opções</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="dino in state.dinos" :key="dino.id">
           <td scope="row">{{ dino.id }}</td>
-          <td>{{ dino.tipo }}</td>
+          <td>{{ dino.nome }}</td>
+          <td>{{ state.especies }}</td>
+          <td>{{ dino.tamanho }}</td>
+          <td>{{ dino.dietaPrincipal }}</td>
           <td>
             <router-link :to="{ name: 'alterar-dieta', params: { id: dino.id }, }" class="btn btn-primary"
               title="Alterar">
@@ -44,12 +50,18 @@ import { onMounted, reactive } from 'vue';
 
 const state = reactive({
   dinos: [],
+  especies: {},
 })
+
 
 async function getDinos() {
   try {
     const { data } = await services.dino.getAll();
     state.dinos = data;
+    // Loop para buscar os nomes das espécies
+    for (const dino of state.dinos) {
+      await getEspecie(dino.especie);
+    }
   } catch (error) {
     console.error('Erro ao buscar dinos:', error);
   }
@@ -65,6 +77,16 @@ async function deletarDino(id) {
   getDinos();
 }
 
+async function getEspecie(id) {
+  try {
+    const { data } = await services.especie.getById(id);
+    // Armazenar o nome da espécie no estado usando o ID como chave
+    state.especies[id] = data.tipo; // Supondo que o nome da espécie é retornado como 'data.nome'
+    console.log(state)
+  } catch (error) {
+    console.error("Erro ao buscar especie:", error);
+  }
+}
 onMounted(getDinos);
 </script>
 

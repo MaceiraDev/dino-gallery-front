@@ -22,9 +22,9 @@ export default (httpClient) => ({
     }
   },
 
-  salvar: async (tipo) => {
+  salvar: async (dino) => {
     try {
-      const response = await httpClient.post('/dinossauro/salvar', { tipo });
+      const response = await httpClient.post('/dinossauro/salvar', dino);
       return {
         data: response.data
       }
@@ -34,7 +34,7 @@ export default (httpClient) => ({
       throw error;
     }
   },
-  
+
   delete: async (id) => {
     try {
       const response = await httpClient.delete('/dinossauro/deletar/' + id);
