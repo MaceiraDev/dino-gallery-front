@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <img src="@/assets/imagens/painel/img3.jpg" class="card-img-bottom" alt="Imagem de capa do card">
+      <img src="@/assets/imagens/painel/img6.jpg" class="card-img-bottom" alt="Imagem de capa do card">
     </div>
     <table class="table table-dark table-hover">
       <thead>
