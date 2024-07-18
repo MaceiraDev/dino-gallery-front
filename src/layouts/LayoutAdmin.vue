@@ -64,6 +64,21 @@ components: {
   border: 1px solid #fff;
 }
 
+.admin-layout select {
+  color: #fff;
+  background-color: #212121;
+  border: 1px solid #0f5;
+  border-radius: 4px;
+  font-size: 14pt;
+  padding: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.admin-layout select:focus {
+  border: 1px solid #fff;
+}
+
 .div_imagem {
   width: 100%;
   display: flex;
