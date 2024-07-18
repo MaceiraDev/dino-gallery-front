@@ -11,6 +11,7 @@ import periodoService from "./periodo";
 import generoService from "./genero";
 import reinoService from "./reino";
 import userService from "./user";
+import dinoService from './dino'
 
 const API_URL = "http://localhost:8070";
 
@@ -30,5 +31,6 @@ export default {
   metodoLocomocao: metodoLocomocaoService(httpClient),
   periodo: periodoService(httpClient),
   reino: reinoService(httpClient),
-  user: userService(httpClient)
+  user: userService(httpClient),
+  dino: dinoService(httpClient),
 }

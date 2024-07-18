@@ -3,10 +3,12 @@ export default (httpClient) => ({
     const response = await httpClient.get('/dieta');
     return { data: response.data }
   },
+
   getById: async (id) => {
     const response = await httpClient.get('/dieta/' + id);
     return { data: response.data }
   },
+
   update: async (id, dieta) => {
     try {
       const response = await httpClient.put('/dieta/atualizar/' + id, dieta);
@@ -19,6 +21,7 @@ export default (httpClient) => ({
       throw error;
     }
   },
+
   salvar: async (tipo) => {
     try {
       const response = await httpClient.post('/dieta/salvar', { tipo });
