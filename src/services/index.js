@@ -6,6 +6,7 @@ import cladoService from "./clado";
 import familiaService from "./familia";
 import subFamiliaService from "./subFamilia";
 import metodoLocomocaoService from "./metodoLocomocao";
+import mezozoicoService from "./mezozoico";
 import filoService from "./filo";
 import periodoService from "./periodo";
 import generoService from "./genero";
@@ -29,6 +30,7 @@ export default {
   filo: filoService(httpClient),
   genero: generoService(httpClient),
   metodoLocomocao: metodoLocomocaoService(httpClient),
+  mezozoico: mezozoicoService(httpClient),
   periodo: periodoService(httpClient),
   reino: reinoService(httpClient),
   user: userService(httpClient),

@@ -1,5 +1,4 @@
-<script setup>
-</script>
+
 <template>
   <main>
     <div class="container-fluid">
@@ -9,7 +8,7 @@
             <div class="content">
               <i class="bi bi-basket" style="color: red;"></i>
               <p class="number">1</p>
-              <p class="text">Novos Pedidos</p>
+              <p class="text">Novos Dinossauros</p>
             </div>
           </div>
         </div>
@@ -17,20 +16,23 @@
           <div class="quad_icon">
             <div class="content">
               <img id="png-rex" src="@/assets/imagens/painel/tiranossauro-rex.png" alt="users">
-              <p class="number">2</p>
+              <p class="number">{{ state.id }}</p>
               <p class="text">Total de Dinossauros</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
+        <template>
+      <div class="col-md-3">
           <div class="quad_icon">
             <div class="content">
+              <img id="png-rex" src="@/assets/imagens/painel/tiranossauro-rex.png" alt="users">
               <i class="bi bi-box-seam" style="color: blue;"></i>
               <p class="number">3</p>
               <p class="text">Total de Produtos</p>
             </div>
           </div>
         </div>
+        </template>
         <div class="col-md-3">
           <div class="quad_icon">
             <div class="content">
@@ -44,6 +46,26 @@
     </div>
   </main>
 </template>
+
+<script setup>
+import services from '@/services';
+import { ref, onMounted, reactive } from 'vue';
+
+const state = reactive({
+  id: "",
+
+})
+
+async function getTotalIds(){
+  const data = await services.mezozoico.getTotalIds()
+  state.id = data.data
+  console.log(data)
+
+} 
+
+onMounted(getTotalIds);
+ 
+</script>
 
 <style scoped>
 main {
