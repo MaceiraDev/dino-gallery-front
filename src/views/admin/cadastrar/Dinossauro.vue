@@ -10,7 +10,7 @@
         <div class="line-form"></div>
         <form @submit.prevent="novoDino">
           <div class="row">
-            <div class="col-sm-1" v-if="state.id">
+            <div class="col-sm-2" v-if="state.id">
               <label for="id" class="form-label">ID</label>
               <input type="text" v-model="state.id" id="id" readonly>
             </div>
@@ -33,13 +33,6 @@
             <div class="col-sm-2">
               <label for="nature" class="form-label">Habitat Natural</label>
               <input type="text" id="nature" required v-model="state.dino.habitatNatural">
-            </div>
-            <div class="col-sm-2">
-              <label for="presa" class="form-label">Presa/Predador</label>
-              <select class="form-label" v-model="state.dino.presa_predador">
-                <option value="PRESA">Presa</option>
-                <option value="PREDADIR">Predador</option>
-              </select>
             </div>
             <div class="col-sm-2">
               <label for="dieta" class="form-label">Dieta</label>
@@ -145,7 +138,6 @@ const state = reactive({
     peso: "",
     dietaPrincipal: "",
     habitatNatural: "",
-    presa_predador: "",
     dietaId: "",
     periodoId: "",
     dominioId: "",
@@ -264,7 +256,7 @@ async function getCampos() {
 async function novoDino() {
   if (state.id) {
     try {
-      await services.dino.update(state.id, state.dieta);
+      await services.dino.update(state.id, state.dino);
       router.push("/admin/dinossauros");
     } catch (error) {
       console.error("Erro ao alterar dieta:", error);

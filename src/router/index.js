@@ -94,6 +94,11 @@ const router = createRouter({
 
         // Rotas de alterar
         {
+          path: 'atualizar/dinossauro/:id',
+          name: 'atualizar-dinossauro',
+          component: () => import('../views/admin/cadastrar/Dinossauro.vue')
+        },
+        {
           path: 'alterar/dieta/:id',
           name: 'alterar-dieta',
           component: () => import('../views/admin/cadastrar/Dieta.vue')

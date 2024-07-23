@@ -9,15 +9,15 @@ export default (httpClient) => ({
     return { data: response.data }
   },
 
-  update: async (id, dieta) => {
+  update: async (id, dino) => {
     try {
-      const response = await httpClient.put('/dinossauro/atualizar/' + id, dieta);
+      const response = await httpClient.put('/dinossauro/atualizar/' + id, dino);
       return {
         data: response.data
       }
     }
     catch (error) {
-      console.error('Erro ao atualizar dieta:', error);
+      console.error('Erro ao atualizar dino:', error);
       throw error;
     }
   },

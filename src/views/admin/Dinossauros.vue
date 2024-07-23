@@ -34,7 +34,7 @@
           <td>{{ dino.dietaNome }}</td>
           <td>{{ dino.dietaPrincipal }}</td>
           <td>
-            <router-link :to="{ name: 'alterar-dieta', params: { id: dino.id }, }" class="btn btn-primary"
+            <router-link :to="{ name: 'atualizar-dinossauro', params: { id: dino.id }, }" class="btn btn-primary"
               title="Alterar">
               <i class="bi bi-pencil"></i>
             </router-link>
@@ -61,9 +61,9 @@ async function getDinos() {
     const { data } = await services.dino.getAll();
     state.dinos = data;
     await fetchEspecies();
-    state.dinos.forEach(dino => { dino.especieNome = state.especies[dino.especie]?.tipo || 'Desconhecido'; });
+    state.dinos.forEach(dino => { dino.especieNome = state.especies[dino.especieId]?.tipo || 'Desconhecido'; });
     await getDietas();
-    state.dinos.forEach(dino => { dino.dietaNome = state.dietas[dino.dieta]?.tipo || 'Desconhecido'; });
+    state.dinos.forEach(dino => { dino.dietaNome = state.dietas[dino.dietaId]?.tipo || 'Desconhecido'; });
 
   } catch (error) {
     console.error('Erro ao buscar dinos:', error);
