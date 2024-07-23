@@ -20,6 +20,7 @@
           <th scope="col">Nome</th>
           <th scope="col">Espécie</th>
           <th scope="col">Tamanho</th>
+          <th scope="col">Dieta</th>
           <th scope="col">Dieta Principal</th>
           <th scope="col">Opções</th>
         </tr>
@@ -28,8 +29,9 @@
         <tr v-for="dino in state.dinos" :key="dino.id">
           <td scope="row">{{ dino.id }}</td>
           <td>{{ dino.nome }}</td>
-          <td>{{ state.especies }}</td>
+          <td>{{ dino.especieNome }}</td>
           <td>{{ dino.tamanho }}</td>
+          <td>{{ dino.dietaNome }}</td>
           <td>{{ dino.dietaPrincipal }}</td>
           <td>
             <router-link :to="{ name: 'alterar-dieta', params: { id: dino.id }, }" class="btn btn-primary"
@@ -51,19 +53,42 @@ import { onMounted, reactive } from 'vue';
 const state = reactive({
   dinos: [],
   especies: {},
+  dietas: {},
 })
-
 
 async function getDinos() {
   try {
     const { data } = await services.dino.getAll();
     state.dinos = data;
-    // Loop para buscar os nomes das espécies
-    for (const dino of state.dinos) {
-      await getEspecie(dino.especie);
-    }
+    await fetchEspecies();
+    state.dinos.forEach(dino => { dino.especieNome = state.especies[dino.especie]?.tipo || 'Desconhecido'; });
+    await getDietas();
+    state.dinos.forEach(dino => { dino.dietaNome = state.dietas[dino.dieta]?.tipo || 'Desconhecido'; });
+
   } catch (error) {
     console.error('Erro ao buscar dinos:', error);
+  }
+}
+
+async function fetchEspecies() {
+  try {
+    const { data } = await services.especie.getAll();
+    data.forEach(especie => {
+      state.especies[especie.id] = especie;
+    });
+  } catch (error) {
+    console.error('Erro ao buscar as especies:', error);
+  }
+}
+
+async function getDietas() {
+  try {
+    const { data } = await services.dieta.getAll();
+    data.forEach(dieta => {
+      state.dietas[dieta.id] = dieta;
+    })
+  } catch (error) {
+    console.error('Erro ao buscar dietas:', error);
   }
 }
 
@@ -71,24 +96,15 @@ async function deletarDino(id) {
   if (!confirm('Tem certeza que deseja excluir este Dino Fofinho?')) return;
   try {
     await services.dino.delete(id);
+    getDinos(); // Atualiza a lista de dinossauros após deletar
   } catch (error) {
-    console.error('Erro ao criar dieta:', error);
+    console.error('Erro ao deletar dino:', error);
   }
-  getDinos();
 }
 
-async function getEspecie(id) {
-  try {
-    const { data } = await services.especie.getById(id);
-    // Armazenar o nome da espécie no estado usando o ID como chave
-    state.especies[id] = data.tipo; // Supondo que o nome da espécie é retornado como 'data.nome'
-    console.log(state)
-  } catch (error) {
-    console.error("Erro ao buscar especie:", error);
-  }
-}
 onMounted(getDinos);
 </script>
+
 
 
 <style scoped>
