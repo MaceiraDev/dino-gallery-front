@@ -119,14 +119,15 @@
 
             <div class="col-md-12" v-if="state.images.length > 0">
               <div class="row">
-                <div class="col-md-2" v-for="(objImage, index) in state.images" :key="objImage" style="display: flex">
-                  <img :src="objImage.image" class="image" />
+                <div class="col-md-2" v-for="(objImage, index) in state.images" :key="index" style="display: flex">
+                  <img :src="getImageUrl(objImage.image)" class="image" alt="Dino Image" />
                   <div class="div_btn_x mt-4">
                     <button class="remove_image" @click="removeImage(index)">
                       <i class="bi bi-x-lg"></i>
                     </button>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -201,12 +202,20 @@ async function getDinoId(id) {
   try {
     const { data } = await services.dino.getById(id);
     state.dino = data;
+    state.images = data.images
+    console.log(state.images)
   } catch (error) {
     console.error("Erro ao buscar dino:", error);
   }
 }
+function getImageUrl(imagePath) {
+  const baseUrl = 'http://localhost:8070/uploads/';
+  // Substitui apenas as barras invertidas por barras normais
+  const cleanedPath = imagePath.replace(/\\/g, '/').split('/').pop();
+  const finalUrl = baseUrl + cleanedPath;
+  return finalUrl;
+}
 
-//Gets de campos de chaves estrangeiras
 async function getCampos() {
   try {
     const { data } = await services.dieta.getAll();
