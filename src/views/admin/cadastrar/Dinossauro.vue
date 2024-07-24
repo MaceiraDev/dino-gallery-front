@@ -282,18 +282,26 @@ async function novoDino() {
       await services.dino.update(state.id, state.dino);
       router.push("/admin/dinossauros");
     } catch (error) {
-      console.error("Erro ao alterar dieta:", error);
+      console.error("Erro ao alterar dinossauro:", error);
     }
   } else {
     try {
-      await services.dino.salvar(state.dino);
-      router.push("/admin/Dinossauros");
+      const { data } = await services.dino.salvar(state.dino);
+      console.log(data);
+      const dino_id = data.id;
+      for (let index = 0; index < state.images.length; index++) {
+        const formData = new FormData();
+        formData.append("dinossauroId", dino_id);
+        formData.append("file", state.images[index].file);
+        await services.dino.saveImage(formData);
+      }
+      router.push("/admin/dinossauros");
     } catch (error) {
-      console.error("Erro ao criar dino:", error);
+      console.error("Erro ao salvar dinossauro e imagens:", error);
     }
   }
-
 }
+
 
 function addImage(event) {
   for (let index = 0; index < event.target.files.length; index++) {

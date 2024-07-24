@@ -50,9 +50,10 @@ export default (httpClient) => ({
 
   saveImage: async (formImagem) => {
     let headers = { "Content-Type": "multipart/form-data" }
-    const response = httpClient.post('/save', formImagem, { headers })
+    const response = httpClient.post('/images/save', formImagem, { headers })
     return {
       data: response.data,
-    }
+    };
+    
   },
 });
