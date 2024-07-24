@@ -111,6 +111,24 @@
                 </option>
               </select>
             </div>
+            <div class="col-sm-3 mt-4">
+              <label for="IMG" class="form-label styled-file-label">Adicionar imagem <br /> <i
+                  class="bi bi-images"></i></label>
+              <input id="IMG" type="file" class="form-file-input" multiple @change="addImage" />
+            </div>
+
+            <div class="col-md-12" v-if="state.images.length > 0">
+              <div class="row">
+                <div class="col-md-2" v-for="(objImage, index) in state.images" :key="objImage" style="display: flex">
+                  <img :src="objImage.image" class="image" />
+                  <div class="div_btn_x mt-4">
+                    <button class="remove_image" @click="removeImage(index)">
+                      <i class="bi bi-x-lg"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="text-end mt-3">
             <button type="submit" class="btn btn-primary me-2">
@@ -163,6 +181,11 @@ const state = reactive({
   subFamilias: [],
   generos: [],
   especies: [],
+
+  //images
+  image: {},
+  images: [],
+  images_delete: [],
 });
 
 onMounted(() => {
@@ -271,6 +294,26 @@ async function novoDino() {
   }
 
 }
+
+function addImage(event) {
+  for (let index = 0; index < event.target.files.length; index++) {
+    const element = event.target.files[index];
+    var objImage = new Object();
+    objImage.id = index + 1;
+    objImage.file = element;
+    objImage.image = URL.createObjectURL(element);
+    state.images.push(objImage);
+    console.log(objImage);
+  }
+}
+
+async function removeImage(index_image) {
+  if (state.images[index_image].id != undefined) {
+    state.images_delete.push(state.images[index_image].id);
+  }
+  state.images.splice(index_image, 1);
+  document.querySelector('input[type="file"]').value = null;
+}
 </script>
 
 <style scoped>
@@ -293,5 +336,61 @@ main {
 
 .card-img-bottom {
   border-radius: 0;
+}
+
+.image {
+  width: 100%;
+  object-fit: contain;
+  margin-top: 1em;
+  height: 200px;
+}
+
+.remove_image {
+  border: none;
+  outline: none;
+  background-color: #dc3545;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #733434;
+}
+
+.remove_image:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #733434;
+}
+
+.div_btn_x {
+  margin-left: 10px;
+}
+
+.form-file-input {
+  display: none;
+}
+
+.styled-file-label {
+  display: inline-block;
+  width: 100%;
+  background-color: transparent;
+  color: #0f5;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #0f5;
+
+}
+
+.styled-file-label:hover {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.styled-file-label:active {
+  border: 1px solid #fff;
+  color: #fff;
 }
 </style>

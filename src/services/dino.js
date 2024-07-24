@@ -46,5 +46,13 @@ export default (httpClient) => ({
       console.error('Erro ao deletar dieta:', error);
       throw error;
     }
-  }
+  },
+
+  saveImage: async (formImagem) => {
+    let headers = { "Content-Type": "multipart/form-data" }
+    const response = httpClient.post('/save', formImagem, { headers })
+    return {
+      data: response.data,
+    }
+  },
 });
