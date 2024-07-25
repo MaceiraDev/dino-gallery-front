@@ -120,14 +120,13 @@
             <div class="col-md-12" v-if="state.images.length > 0">
               <div class="row">
                 <div class="col-md-2" v-for="(objImage, index) in state.images" :key="index" style="display: flex">
-                  <img :src="getImageUrl(objImage.image)" class="image" alt="Dino Image" />
+                  <img :src="objImage.imageUrl" class="image" alt="Dino Image" />
                   <div class="div_btn_x mt-4">
                     <button class="remove_image" @click="removeImage(index)">
                       <i class="bi bi-x-lg"></i>
                     </button>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -203,17 +202,9 @@ async function getDinoId(id) {
     const { data } = await services.dino.getById(id);
     state.dino = data;
     state.images = data.images
-    console.log(state.images)
   } catch (error) {
     console.error("Erro ao buscar dino:", error);
   }
-}
-function getImageUrl(imagePath) {
-  const baseUrl = 'http://localhost:8070/uploads/';
-  // Substitui apenas as barras invertidas por barras normais
-  const cleanedPath = imagePath.replace(/\\/g, '/').split('/').pop();
-  const finalUrl = baseUrl + cleanedPath;
-  return finalUrl;
 }
 
 async function getCampos() {
@@ -318,7 +309,7 @@ function addImage(event) {
     var objImage = new Object();
     objImage.id = index + 1;
     objImage.file = element;
-    objImage.image = URL.createObjectURL(element);
+    objImage.imageUrl = URL.createObjectURL(element);
     state.images.push(objImage);
     console.log(objImage);
   }
@@ -331,6 +322,7 @@ async function removeImage(index_image) {
   state.images.splice(index_image, 1);
   document.querySelector('input[type="file"]').value = null;
 }
+
 </script>
 
 <style scoped>
