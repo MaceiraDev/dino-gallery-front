@@ -16,64 +16,68 @@
       </div>
     </section>
     <section class="services spad" style="position: relative">
-    <div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="services__title">
-              <div class="section-title">
-                <span>Curiosidades sobre os dinossauros!!</span>
-                <h2>O que é o Dino Gallery?</h2>
+      <div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="services__title">
+                <div class="section-title">
+                  <span>Curiosidades sobre os dinossauros!!</span>
+                  <h2>O que é o Dino Gallery?</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.n, ante urna consectetur urna, sed tempus sem
+                  nulla a nulla.
+                  Phasellus in aliquam lorem. Etiam efficitur urn</p>
+                <a href="#" class="primary-btn">bla bla bla</a>
               </div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.n, ante urna consectetur urna, sed tempus sem
-                nulla a nulla.
-                Phasellus in aliquam lorem. Etiam efficitur urn</p>
-              <a href="#" class="primary-btn">bla bla bla</a>
             </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="coluna_infoDino">
-                  <div class="coluna_infoDino__icon">
-                    <i class=" "></i>
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="coluna_infoDino">
+                    <div class="coluna_infoDino__icon">
+                      <i class="bi bi-exclamation-square-fill"></i>
+                    </div>
+                    <h4>Maior Predador:</h4>
+                    <p>O Tyrannosaurus rex é um dos predadores mais conhecidos, com uma mordida poderosa capaz de
+                      esmagar ossos. Ele viveu no final do período Cretáceo, há cerca de 68 a 66 milhões de anos.</p>
                   </div>
-                  <h4>Maior Predador:</h4>
-                  <p>O Tyrannosaurus rex é um dos predadores mais conhecidos, com uma mordida poderosa capaz de esmagar ossos. Ele viveu no final do período Cretáceo, há cerca de 68 a 66 milhões de anos.</p>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="coluna_infoDino">
-                  <div class="coluna_infoDino__icon">
-
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="coluna_infoDino">
+                    <div class="coluna_infoDino__icon">
+                      <i class="bi bi-airplane-fill"></i>
+                    </div>
+                    <h4>Fósseis pelo Mundo:</h4>
+                    <p>Fósseis de dinossauros foram encontrados em todos os continentes, incluindo a Antártida,
+                      demonstrando que esses animais eram extremamente adaptáveis e diversificados.</p>
                   </div>
-                  <h4>Fósseis pelo Mundo:</h4>
-                  <p>Fósseis de dinossauros foram encontrados em todos os continentes, incluindo a Antártida, demonstrando que esses animais eram extremamente adaptáveis e diversificados.</p>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="coluna_infoDino">
-                  <div class="coluna_infoDino__icon">
-
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="coluna_infoDino">
+                    <div class="coluna_infoDino__icon">
+                      <i class="bi bi-globe2"></i>
+                    </div>
+                    <h4>Maior Dinossauro Terrestre: </h4>
+                    <p>O Patagotitan mayorum é considerado um dos maiores dinossauros terrestres, medindo cerca de 37
+                      metros de comprimento e pesando em torno de 69 toneladas.</p>
                   </div>
-                  <h4>Maior Dinossauro Terrestre: </h4>
-                  <p>O Patagotitan mayorum é considerado um dos maiores dinossauros terrestres, medindo cerca de 37 metros de comprimento e pesando em torno de 69 toneladas.</p>
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="coluna_infoDino">
-                  <div class="coluna_infoDino__icon">
-
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="coluna_infoDino">
+                    <div class="coluna_infoDino__icon">
+                      <i class="bi bi-flower3"></i>
+                    </div>
+                    <h4>Herbívoros Gigantes: </h4>
+                    <p>Alguns dos maiores dinossauros, como os saurópodes (ex: Brachiosaurus e Diplodocus), eram
+                      herbívoros que se alimentavam de grandes quantidades de vegetação.</p>
                   </div>
-                  <h4>Herbívoros Gigantes: </h4>
-                  <p>Alguns dos maiores dinossauros, como os saurópodes (ex: Brachiosaurus e Diplodocus), eram herbívoros que se alimentavam de grandes quantidades de vegetação.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </section>
     <h1>Home</h1>
   </main>
@@ -118,8 +122,8 @@ import Carrocel from '@/components/Carrocel.vue';
 
 .coluna_infoDino {
   color: #0f5;
- 
- }
+
+}
 
 .coluna_infoDino p {
   font-size: 16px;
@@ -134,7 +138,7 @@ import Carrocel from '@/components/Carrocel.vue';
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
-  
+
 }
 
 .coluna_infoDino h4 {
@@ -145,7 +149,7 @@ import Carrocel from '@/components/Carrocel.vue';
   background: #111;
   color: #fff;
   height: 100vh;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
