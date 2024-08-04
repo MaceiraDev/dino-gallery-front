@@ -36,7 +36,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon">
-                      <i class="bi bi-exclamation-square-fill"></i>
+                      <img src="./../assets/imagens/icons/carne.svg" id="icon_curiosidades">
                     </div>
                     <h4>Maior Predador:</h4>
                     <p>O Tyrannosaurus rex é um dos predadores mais conhecidos, com uma mordida poderosa capaz de
@@ -45,8 +45,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
-                    <div class="coluna_infoDino__icon">
-                      <i class="bi bi-airplane-fill"></i>
+                    <div class="coluna_infoDino__icon" id="icon_curiosidades">
+                      <img src="./../assets/imagens/icons/mundo.png" id="icon_curiosidades" >
                     </div>
                     <h4>Fósseis pelo Mundo:</h4>
                     <p>Fósseis de dinossauros foram encontrados em todos os continentes, incluindo a Antártida,
@@ -56,7 +56,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon">
-                      <i class="bi bi-globe2"></i>
+                      <img src="./../assets/imagens/icons/maiorDino.png" id="icon_curiosidades" >
                     </div>
                     <h4>Maior Dinossauro Terrestre: </h4>
                     <p>O Patagotitan mayorum é considerado um dos maiores dinossauros terrestres, medindo cerca de 37
@@ -66,7 +66,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon">
-                      <i class="bi bi-flower3"></i>
+                      <img src="./../assets/imagens/icons/noun-brontosaurus-3881225.png" id="icon_curiosidades">
                     </div>
                     <h4>Herbívoros Gigantes: </h4>
                     <p>Alguns dos maiores dinossauros, como os saurópodes (ex: Brachiosaurus e Diplodocus), eram
@@ -124,11 +124,17 @@ import Carrocel from '@/components/Carrocel.vue';
   color: #0f5;
 }
 
+#icon_curiosidades{
+  height: 50px;
+  filter: drop-shadow(16px 16px 20px rgba(0, 255, 85, 0.5)) invert(75%) hue-rotate(90deg);
+}
 
 .coluna_infoDino {
   color: #0f5;
 
 }
+
+ 
 
 .coluna_infoDino p {
   font-size: 16px;
