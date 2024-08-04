@@ -120,6 +120,11 @@ import Carrocel from '@/components/Carrocel.vue';
   object-fit: cover;
 }
 
+.section-title{
+  color: #0f5;
+}
+
+
 .coluna_infoDino {
   color: #0f5;
 
