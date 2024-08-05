@@ -36,7 +36,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon">
-                      <img src="./../assets/imagens/icons/carne.svg" id="icon_curiosidades">
+                      <img src="./../assets/imagens/icons/carne.svg" id="icon_curiosidades" >
                     </div>
                     <h4>Maior Predador:</h4>
                     <p>O Tyrannosaurus rex é um dos predadores mais conhecidos, com uma mordida poderosa capaz de
@@ -46,7 +46,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon" id="icon_curiosidades">
-                      <img src="./../assets/imagens/icons/mundo.png" id="icon_curiosidades" >
+                      <img src="./../assets/imagens/icons/mundo.png" id="icon_curiosidades">
                     </div>
                     <h4>Fósseis pelo Mundo:</h4>
                     <p>Fósseis de dinossauros foram encontrados em todos os continentes, incluindo a Antártida,
@@ -56,7 +56,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon">
-                      <img src="./../assets/imagens/icons/maiorDino.png" id="icon_curiosidades" >
+                      <img src="./../assets/imagens/icons/maiorDino.png" id="icon_curiosidades">
                     </div>
                     <h4>Maior Dinossauro Terrestre: </h4>
                     <p>O Patagotitan mayorum é considerado um dos maiores dinossauros terrestres, medindo cerca de 37
@@ -120,24 +120,75 @@ import Carrocel from '@/components/Carrocel.vue';
   object-fit: cover;
 }
 
-.section-title{
+.section-title {
   color: #0f5;
+  font-weight: 700;
 }
 
-#icon_curiosidades{
+.section-title h2 {
+  font-weight: 700;
+}
+
+.rotating-border {
+  position: relative;
+  display: inline-block;
+}
+
+.rotating-border::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid green;
+  box-sizing: border-box;
+  transition: transform 10s ease;
+  transform-origin: center;
+}
+
+.rotating-border:hover::after {
+  transform: rotate(360deg);
+}
+
+#icon_curiosidades {
   height: 50px;
   filter: drop-shadow(16px 16px 20px rgba(0, 255, 85, 0.5)) invert(75%) hue-rotate(90deg);
+  
 }
 
 .coluna_infoDino {
   color: #0f5;
-
+  font-weight: 700px;
 }
 
- 
+.coluna_infoDino__icon img {
+      display: block;
+      padding: 10px;
+      border: 2px solid green;
+      border-radius: 0; /* Bordas quadradas */
+      transition: transform 0.5s ease-in-out;
+}
+
+.coluna_infoDino__icon:hover img {
+  transform: rotate(360deg);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.coluna_infoDino {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.coluna_infoDino__icon {
+  display: inline-block;
+  padding: 10px;
+}
 
 .coluna_infoDino p {
   font-size: 16px;
+  margin: 10px 0;
+  margin: 0;
   font-family: "Josefin Sans", sans-serif;
   color: #fff;
   font-weight: 400;
@@ -149,11 +200,13 @@ import Carrocel from '@/components/Carrocel.vue';
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
+  
 
 }
 
 .coluna_infoDino h4 {
   font-family: 'Poppins';
+  font-weight: 700;
 }
 
 .services {
@@ -164,7 +217,6 @@ import Carrocel from '@/components/Carrocel.vue';
   justify-content: center;
   align-items: center;
 }
-
 
 
 .content_1 {
