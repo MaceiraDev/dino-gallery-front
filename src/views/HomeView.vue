@@ -25,10 +25,14 @@
                   <span>Curiosidades sobre os dinossauros!!</span>
                   <h2>O que é o Dino Gallery?</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.n, ante urna consectetur urna, sed tempus sem
-                  nulla a nulla.
-                  Phasellus in aliquam lorem. Etiam efficitur urn</p>
-                <a href="#" class="primary-btn">bla bla bla</a>
+                <p class="sobreDino">
+                  Dino Gallery é um site dedicado a uma incrível galeria de dinossauros, 
+                  criado por dois estudantes de Sistemas para Internet. 
+                  Nosso objetivo é não apenas compartilhar nossa paixão pelos dinossauros, mas também demonstrar nossas habilidades e conhecimentos em desenvolvimento web, 
+                  enquanto buscamos nos inserir no mercado de trabalho de Tecnologia da Informação (TI).
+                  
+                  Nós, os fundadores do Dino Gallery, estamos ansiosos para usar esta plataforma como um trampolim para futuras oportunidades na indústria de TI, mostrando nossas competências técnicas e nossa capacidade de criar conteúdos digitais envolventes e bem elaborados.</p>
+                <a href="sobre" class="primary-btn">saiba mais sobre os criadores</a>
               </div>
             </div>
             <div class="col-lg-8">
@@ -66,7 +70,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="coluna_infoDino">
                     <div class="coluna_infoDino__icon rotating-border">
-                      <img src="./../assets/imagens/icons/noun-brontosaurus-3881225.png" id="icon_curiosidades">
+                      <img src="./../assets/imagens/icons/noun-dinosaur-2451722.png" id="icon_curiosidades">
                     </div>
                     <h4>Herbívoros Gigantes: </h4>
                     <p>Alguns dos maiores dinossauros, como os saurópodes (ex: Brachiosaurus e Diplodocus), eram
@@ -120,7 +124,11 @@ import Carrocel from '@/components/Carrocel.vue';
   object-fit: cover;
 }
 
-.section-title {
+.sobreDino{
+  text-align: justify;
+}
+
+.section-title  {
   color: #0f5;
   font-weight: 700;
 }
