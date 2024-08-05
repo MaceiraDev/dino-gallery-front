@@ -85,6 +85,12 @@
     </section>
     <section id="section_3">
       <div class="container-fluid">
+        <div class="text-center">
+          <h1 class="title-dieta">Encontre seu dino pela dieta</h1>
+        </div>
+        <div class="div_dieta">
+          <h2><i class="bi bi-caret-right-fill"></i> Nossos Carnívoros</h2>
+        </div>
         <CarouselDino :dinos="state.carnivoros" />
       </div>
     </section>
@@ -257,7 +263,25 @@ main {
   margin-top: 2rem;
 }
 
-.section_3 {
+#section_3 {
   height: 100vh;
+}
+
+.title-dieta {
+  color: #0f5;
+  font-size: 35pt;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+
+#section_3 h2 {
+  color: #0f5;
+  font-size: 20pt;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+#section_3 .div_dieta {
+  margin-top: 5rem;
 }
 </style>

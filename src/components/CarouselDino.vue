@@ -5,6 +5,7 @@
         <div class="overlay"></div>
         <div class="content">
           <h2> {{ dino.nome }}</h2>
+          <p> {{ dino.infoCard }}</p>
         </div>
       </div>
     </slide>
@@ -59,11 +60,29 @@ const getBackgroundImage = (imageUrl) => {
 .card .content {
   position: relative;
   z-index: 2;
+  width: auto;
+  max-width: 100%;
+  text-align: left;
+  margin-left: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .content h2 {
   font-family: 'Poppins', sans-serif;
   color: #fff;
+  margin-bottom: 0;
+  font-size: 25pt;
+  font-weight: 700;
+}
 
+.content p {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-size: 12pt;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 </style>
