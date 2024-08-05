@@ -116,7 +116,10 @@
                   class="bi bi-images"></i></label>
               <input id="IMG" type="file" class="form-file-input" multiple @change="addImage" />
             </div>
-
+            <div class="col-sm-12">
+              <label for="info" class="form-label">Info Card</label>
+              <input type="text" id="info" required v-model="state.dino.infoCard">
+            </div>
             <div class="col-md-12" v-if="state.images.length > 0">
               <div class="row">
                 <div class="col-md-2" v-for="(objImage, index) in state.images" :key="index" style="display: flex">
@@ -156,6 +159,7 @@ const state = reactive({
     peso: "",
     dietaPrincipal: "",
     habitatNatural: "",
+    infoCard: "",
     dietaId: "",
     periodoId: "",
     dominioId: "",
