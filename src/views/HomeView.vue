@@ -88,10 +88,14 @@
         <div class="text-center">
           <h1 class="title-dieta">Encontre seu dino pela dieta</h1>
         </div>
-        <div class="div_dieta">
-          <h2><i class="bi bi-caret-right-fill"></i> Nossos Carnívoros</h2>
+        <div class="div_dieta mt-5">
+          <h2><i class="bi bi-caret-right-fill"></i> Os temíveis Carnívoros</h2>
         </div>
         <CarouselDino :dinos="state.carnivoros" />
+        <div class="div_dieta mt-2">
+          <h2><i class="bi bi-caret-right-fill"></i> Os doces Herbívoros</h2>
+        </div>
+        <CarouselDino :dinos="state.herbivoros" />
       </div>
     </section>
   </main>
@@ -106,17 +110,23 @@ import services from '@/services';
 
 onMounted(() => {
   getCarinivoros();
+  getHerbivoros();
 })
 
 const state = reactive({
-  carnivoros: []
+  carnivoros: [],
+  herbivoros: []
 })
 
 async function getCarinivoros() {
   const tipo_dieta = 'Carnívoro'
   const { data } = await services.dino.getDietaByTipo(tipo_dieta);
   state.carnivoros = data;
-  console.log(data)
+}
+async function getHerbivoros() {
+  const tipo_dieta = 'Herbívoro'
+  const { data } = await services.dino.getDietaByTipo(tipo_dieta);
+  state.herbivoros = data;
 }
 </script>
 
@@ -264,7 +274,7 @@ main {
 }
 
 #section_3 {
-  height: 100vh;
+  height: auto;
 }
 
 .title-dieta {
@@ -281,7 +291,4 @@ main {
   font-weight: 600;
 }
 
-#section_3 .div_dieta {
-  margin-top: 5rem;
-}
 </style>

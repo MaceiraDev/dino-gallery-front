@@ -11,14 +11,13 @@
     </slide>
     <template #addons>
       <navigation />
-      <pagination />
     </template>
   </carousel>
 </template>
 
 <script setup>
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
 const props = defineProps({
   dinos: {
