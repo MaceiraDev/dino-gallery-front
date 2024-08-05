@@ -54,6 +54,25 @@ export default (httpClient) => ({
     return { data: dinoWithImages }; // Retorna o objeto do dinossauro com as imagens processadas
   },
 
+  getDietaByTipo: async (tipoDieta) => {
+    const response = await httpClient.get('/dinossauro/dieta/' + tipoDieta); // Busca dinossauros pelo tipo de dieta
+    const dataWithImageUrls = await Promise.all(response.data.map(async dino => { // Processa cada dinossauro na lista
+      const imagesWithUrls = await Promise.all(dino.images.map(async imgObj => { // Processa cada imagem do dinossauro
+        const imageUrl = getImageUrl(imgObj.image); // Gera a URL da imagem
+        const isValid = await testImageUrl(imageUrl); // Testa se a URL da imagem é válida
+        return {
+          ...imgObj, // Mantém todas as propriedades originais do objeto de imagem
+          imageUrl: isValid ? imageUrl : 'URL inválida ou imagem não encontrada' // Adiciona a URL da imagem ou uma mensagem de erro se a URL não for válida
+        };
+      }));
+      return {
+        ...dino, // Mantém todas as propriedades originais do dinossauro
+        images: imagesWithUrls // Substitui o array de imagens pelo array com URLs processadas
+      };
+    }));
+    return { data: dataWithImageUrls }; // Retorna os dados processados
+  },
+
   update: async (id, dino) => {
     try {
       const response = await httpClient.put('/dinossauro/atualizar/' + id, dino);

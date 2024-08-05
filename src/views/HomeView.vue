@@ -84,7 +84,9 @@
       </div>
     </section>
     <section id="section_3">
-      <CarouselDino />
+      <div class="container-fluid">
+        <CarouselDino :dinos="state.carnivoros" />
+      </div>
     </section>
   </main>
 </template>
@@ -93,6 +95,23 @@ import Header from '@/components/Header.vue';
 import Button from '@/components/ButtonExplore.vue';
 import Carrocel from '@/components/Carrocel.vue';
 import CarouselDino from '@/components/CarouselDino.vue';
+import { onMounted, reactive } from 'vue';
+import services from '@/services';
+
+onMounted(() => {
+  getCarinivoros();
+})
+
+const state = reactive({
+  carnivoros: []
+})
+
+async function getCarinivoros() {
+  const tipo_dieta = 'Carnívoro'
+  const { data } = await services.dino.getDietaByTipo(tipo_dieta);
+  state.carnivoros = data;
+  console.log(data)
+}
 </script>
 
 <style scoped>
