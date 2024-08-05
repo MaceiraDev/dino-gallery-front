@@ -15,24 +15,24 @@
         </div>
       </div>
     </section>
-    <section class="services spad" style="position: relative">
+    <section class="section_2 spad" style="position: relative">
       <div>
         <div class="container">
           <div class="row">
             <div class="col-lg-4">
-              <div class="services__title">
-                <div class="section-title">
+              <div class="section_2_title">
+                <div class="title">
                   <span>Curiosidades sobre os dinossauros!!</span>
                   <h2>O que é o Dino Gallery?</h2>
+                  <div class="line"></div>
                 </div>
                 <p class="sobreDino">
-                  Dino Gallery é um site dedicado a uma incrível galeria de dinossauros, 
-                  criado por dois estudantes de Sistemas para Internet. 
-                  Nosso objetivo é não apenas compartilhar nossa paixão pelos dinossauros, mas também demonstrar nossas habilidades e conhecimentos em desenvolvimento web, 
-                  enquanto buscamos nos inserir no mercado de trabalho de Tecnologia da Informação (TI).
-                  
-                  Nós, os fundadores do Dino Gallery, estamos ansiosos para usar esta plataforma como um trampolim para futuras oportunidades na indústria de TI, mostrando nossas competências técnicas e nossa capacidade de criar conteúdos digitais envolventes e bem elaborados.</p>
-                <a href="sobre" class="primary-btn">saiba mais sobre os criadores</a>
+                  Dino Gallery é um site dedicado a uma incrível galeria de dinossauros,
+                  criado por dois estudantes de Sistemas para Internet.
+                  Nosso objetivo é não apenas compartilhar nossa paixão pelos dinossauros, mas também demonstrar nossas
+                  habilidades e conhecimentos em desenvolvimento web,
+                  enquanto buscamos nos inserir no mercado de trabalho de Tecnologia da Informação.</p>
+                <Button :title="'Saiba mais sobre os criadores'" />
               </div>
             </div>
             <div class="col-lg-8">
@@ -83,23 +83,21 @@
         </div>
       </div>
     </section>
-    <h1>Home</h1>
+    <section id="section_3">
+      <CarouselDino />
+    </section>
   </main>
 </template>
-
 <script setup>
 import Header from '@/components/Header.vue';
 import Button from '@/components/ButtonExplore.vue';
 import Carrocel from '@/components/Carrocel.vue';
+import CarouselDino from '@/components/CarouselDino.vue';
 </script>
 
 <style scoped>
-@media (min-width: 992px) {
-  .col-lg-4 {
-    -ms-flex: 0 0 33.333333%;
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
+main {
+  background: #111;
 }
 
 #image_banner {
@@ -124,17 +122,23 @@ import Carrocel from '@/components/Carrocel.vue';
   object-fit: cover;
 }
 
-.sobreDino{
+.sobreDino {
   text-align: justify;
+  font-family: 'Poppins', sans-serif;
+  line-height: 2;
 }
 
-.section-title  {
+.title span {
+  font-weight: 400;
   color: #0f5;
-  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
 }
 
-.section-title h2 {
+.title h2 {
   font-weight: 700;
+  color: #0f5;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 5px;
 }
 
 .rotating-border {
@@ -184,28 +188,19 @@ import Carrocel from '@/components/Carrocel.vue';
 }
 
 .coluna_infoDino p {
-  font-size: 16px;
   margin: 10px 0;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #fff;
-  font-weight: 400;
-  line-height: 26px;
-  margin-bottom: 30px;
-  position: relative;
-  width: 100%;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: left;
+  font-weight: 500;
+  line-height: 2;
 }
 
 .coluna_infoDino h4 {
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
 }
 
-.services {
-  background: #111;
+.section_2 {
   color: #fff;
   height: 100vh;
   display: flex;
@@ -233,5 +228,17 @@ import Carrocel from '@/components/Carrocel.vue';
   font-size: 16pt;
   line-height: 0;
   font-family: 'Poppins', sans-serif;
+}
+
+.line {
+  background-color: #0f5;
+  height: 5px;
+  width: 5rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.section_3 {
+  height: 100vh;
 }
 </style>
