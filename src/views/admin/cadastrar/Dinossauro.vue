@@ -19,6 +19,10 @@
               <input type="text" id="nome" required v-model="state.dino.nome">
             </div>
             <div class="col-sm-2">
+              <label for="urn" class="form-label">Urn</label>
+              <input type="text" id="urn" required v-model="state.dino.urn">
+            </div>
+            <div class="col-sm-2">
               <label for="tamn" class="form-label">Tamanho</label>
               <input type="text" id="tamn" required v-model="state.dino.tamanho">
             </div>
@@ -155,6 +159,7 @@ const state = reactive({
   id: "",
   dino: {
     nome: "",
+    urn: "",
     tamanho: "",
     peso: "",
     dietaPrincipal: "",

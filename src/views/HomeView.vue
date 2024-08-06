@@ -98,6 +98,29 @@
         <CarouselDino :dinos="state.herbivoros" />
       </div>
     </section>
+    <section id="section_4">
+      <div class="div_section4 mt-2">
+        <h2><i class="bi bi-caret-right-fill"></i>As eras do período Mesozoico</h2>
+      </div>
+      <div class="top-half">
+        <div class="left">
+          <div class="content-overlay">
+            <div class="overlay-text">Jurássico</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="content-overlay">
+            <div class="overlay-text">Triássico</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-half">
+        <div class="content-overlay">
+          <div class="overlay-text">Cretáceo</div>
+        </div>
+      </div>
+    </section>
+
   </main>
 </template>
 <script setup>
@@ -156,6 +179,7 @@ main {
   height: 100vh;
   object-fit: cover;
 }
+
 
 .sobreDino {
   text-align: justify;
@@ -291,4 +315,82 @@ main {
   font-weight: 600;
 }
 
+.section_4 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.div_section4 {
+  color: #0f5;
+  font-size: 20pt;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+
+.top-half {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+}
+
+.left,
+.right,
+.bottom-half {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.left {
+  background-image: url("./../assets/imagens/sections/jurrasico.webp");
+}
+
+.right {
+  background-image: url("./../assets/imagens/sections/triassico.png");
+}
+
+.bottom-half {
+  background-image: url("./../assets/imagens/sections/Cretaceous.jpg");
+}
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  /* Initial overlay color */
+  z-index: 1;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Overlay color on hover */
+  opacity: 1;
+}
+
+.overlay-text {
+  color: #0f5;
+  font-size: 2em;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-overlay:hover .overlay-text {
+  opacity: 1;
+}
 </style>
