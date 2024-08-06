@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/dino/:urn',
+      name: 'dino-by-urn',
+      component: () => import('../views/DinoView.vue')
+    },
+    {
       path: '/admin',
       component: LayoutAdmin,
       children: [
@@ -227,7 +232,14 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/User.vue')
         }
       ]
-    }
+    },
+    
+    // Rota de captura para páginas não encontradas
+    {
+      path: '/:pathMatch(.*)*', // Captura todas as rotas que n existe
+      name: 'NotFound',
+      component: () => import('../components/Error.vue')
+    },
   ]
 });
 

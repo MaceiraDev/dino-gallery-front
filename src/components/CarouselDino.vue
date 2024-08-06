@@ -2,11 +2,13 @@
   <carousel :items-to-show="3">
     <slide v-for="dino in dinos" :key="dino.id">
       <div class="card" :style="getBackgroundImage(dino.images[0].imageUrl)">
-        <div class="overlay"></div>
-        <div class="content">
-          <h2> {{ dino.nome }}</h2>
-          <p> {{ dino.infoCard }}</p>
-        </div>
+        <RouterLink :to="'/dino/' + dino.urn">
+          <div class="overlay"></div>
+          <div class="content">
+            <h2> {{ dino.nome }}</h2>
+            <p> {{ dino.infoCard }}</p>
+          </div>
+        </RouterLink>
       </div>
     </slide>
     <template #addons>
@@ -33,6 +35,9 @@ const getBackgroundImage = (imageUrl) => {
 </script>
 
 <style scoped>
+*{
+  text-decoration: none;
+}
 .card {
   position: relative;
   margin: 5px;
