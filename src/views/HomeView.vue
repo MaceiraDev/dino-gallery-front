@@ -151,6 +151,7 @@ async function getHerbivoros() {
 <style scoped>
 main {
   background: #111;
+  overflow-x: hidden;
 }
 
 #image_banner {

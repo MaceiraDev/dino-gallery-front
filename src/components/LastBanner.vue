@@ -10,6 +10,13 @@
             <Button :title="'Ver Dinos'" />
           </div>
         </div>
+        <div data-aos="fade-left">
+          <div class="text-right">
+            <h1>Os Criadores</h1>
+            <p>Quem foram os criadores do Dino Gallery?</p>
+            <Button :title="'Saiba mais sobre os criadores'" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -34,20 +41,18 @@ import Button from '@/components/ButtonExplore.vue';
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* Overlay semitransparente */
+  background: rgba(0, 0, 0, 0.637);
   z-index: 1;
 }
 
 .container {
   position: relative;
   z-index: 2;
-  /* Garante que o conteúdo fique acima do overlay */
 }
 
 .content_1 {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   height: 50vh;
 }
