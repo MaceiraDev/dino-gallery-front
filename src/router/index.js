@@ -92,6 +92,11 @@ const router = createRouter({
           component: () => import('../views/admin/Periodos.vue')
         },
         {
+          path: 'perguntas-respostas',
+          name: 'perguntas',
+          component: () => import('../views/admin/Perguntas.vue')
+        },
+        {
           path: 'users',
           name: 'users',
           component: () => import('../views/admin/Users.vue')
@@ -157,6 +162,11 @@ const router = createRouter({
           path: 'alterar/periodo/:id',
           name: 'alterar-periodo',
           component: () => import('../views/admin/cadastrar/Periodo.vue')
+        },
+        {
+          path: 'alterar/perguntas-respostas/:id',
+          name: 'alterar-pergunta',
+          component: () => import('../views/admin/cadastrar/Pergunta.vue')
         },
         {
           path: 'alterar/user/:id',
@@ -227,13 +237,18 @@ const router = createRouter({
           component: () => import('../views/admin/cadastrar/Periodo.vue')
         },
         {
+          path: 'cadastrar/perguntas-respostas',
+          name: 'cadastrar-pergunta',
+          component: () => import('../views/admin/cadastrar/Pergunta.vue')
+        },
+        {
           path: 'cadastrar/user',
           name: 'cadastrar-user',
           component: () => import('../views/admin/cadastrar/User.vue')
         }
       ]
     },
-    
+
     // Rota de captura para páginas não encontradas
     {
       path: '/:pathMatch(.*)*', // Captura todas as rotas que n existe

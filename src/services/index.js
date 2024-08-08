@@ -12,6 +12,7 @@ import periodoService from "./periodo";
 import generoService from "./genero";
 import reinoService from "./reino";
 import userService from "./user";
+import perguntasService from "./perguntas";
 import dinoService from './dino'
 
 const API_URL = "http://localhost:8070";
@@ -34,5 +35,6 @@ export default {
   periodo: periodoService(httpClient),
   reino: reinoService(httpClient),
   user: userService(httpClient),
+  perguntas: perguntasService(httpClient),
   dino: dinoService(httpClient),
 }

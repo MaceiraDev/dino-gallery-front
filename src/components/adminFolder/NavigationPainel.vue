@@ -63,6 +63,10 @@
         @click="setActive('periodos')">
         <i class="bi bi-hourglass"></i><span>Periodos</span>
       </router-link>
+      <router-link to="/admin/perguntas-respostas" class="nav" :class="{ 'nav-selected': activeLink === 'perguntas' }"
+        @click="setActive('perguntas')">
+        <i class="bi bi-question-lg"></i><span>Perguntas e Respostas</span>
+      </router-link>
       <router-link to="/admin/users" class="nav" :class="{ 'nav-selected': activeLink === 'users' }"
         @click="setActive('users')">
         <i class="bi bi-people-fill"></i><span>Users</span>
@@ -100,7 +104,7 @@ a {
 
 .navigation {
   background: #212121;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;

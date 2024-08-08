@@ -10,11 +10,14 @@
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Os Titanossauros são conhecidos por serem alguns dos maiores dinossauros que já existiram. Este grupo de dinossauros herbívoros incluía espécies como o Argentinosaurus, 
+          <div class="accordion-body">Os Titanossauros são conhecidos por serem alguns dos maiores dinossauros que já
+            existiram. Este grupo de dinossauros herbívoros incluía espécies como o Argentinosaurus,
             que podia atingir até 40 metros de comprimento e pesar cerca de 70 toneladas.
-             Essas criaturas imensas vagavam pelas planícies e florestas do período Cretáceo, há aproximadamente 90 a 100 milhões de anos. Suas enormes caudas e longos pescoços eram utilizados tanto para defesa quanto para alcançar vegetação em grandes alturas.
-              A descoberta desses gigantes nos lembra da incrível diversidade e escala de vida que já existiu na Terra.
-           
+            Essas criaturas imensas vagavam pelas planícies e florestas do período Cretáceo, há aproximadamente 90 a 100
+            milhões de anos. Suas enormes caudas e longos pescoços eram utilizados tanto para defesa quanto para
+            alcançar vegetação em grandes alturas.
+            A descoberta desses gigantes nos lembra da incrível diversidade e escala de vida que já existiu na Terra.
+
           </div>
         </div>
       </div>
@@ -26,12 +29,14 @@
           </button>
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">O Velociraptor é muitas vezes associado à velocidade e agilidade. 
-            Embora fosse pequeno, medindo cerca de 2 metros de comprimento e pesando aproximadamente 15 quilos, 
-            este dinossauro carnívoro era um caçador formidável. 
-            Estima-se que o Velociraptor podia correr a velocidades de 40 a 60 km/h, utilizando suas garras afiadas e dentes serrilhados para capturar presas com rapidez. 
-            Ao contrário do que é mostrado em filmes populares, ele não era tão grande, mas sua velocidade e inteligência o tornavam um dos predadores mais eficientes de sua época
-            
+          <div class="accordion-body">O Velociraptor é muitas vezes associado à velocidade e agilidade.
+            Embora fosse pequeno, medindo cerca de 2 metros de comprimento e pesando aproximadamente 15 quilos,
+            este dinossauro carnívoro era um caçador formidável.
+            Estima-se que o Velociraptor podia correr a velocidades de 40 a 60 km/h, utilizando suas garras afiadas e
+            dentes serrilhados para capturar presas com rapidez.
+            Ao contrário do que é mostrado em filmes populares, ele não era tão grande, mas sua velocidade e
+            inteligência o tornavam um dos predadores mais eficientes de sua época
+
           </div>
         </div>
       </div>
@@ -43,22 +48,28 @@
           </button>
         </h2>
         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body">Uma das descobertas mais surpreendentes da paleontologia moderna é que muitos dinossauros, 
-            incluindo o famoso Velociraptor, tinham penas. Durante muito tempo, os dinossauros foram retratados como criaturas escamosas, mas evidências fósseis recentes mostraram que penas eram comuns, especialmente entre os terópodes, o grupo de dinossauros que inclui os ancestrais das aves.
-             Essas penas podiam ter várias funções, como regulação térmica, exibição durante o acasalamento, ou até mesmo para ajudar em saltos e manobras rápidas. 
-            Isso reforça a ligação direta entre os dinossauros e os pássaros modernos, mostrando que os dinossauros não estão completamente extintos—eles simplesmente evoluíram e ainda estão entre nós.
-           
+          <div class="accordion-body">Uma das descobertas mais surpreendentes da paleontologia moderna é que muitos
+            dinossauros,
+            incluindo o famoso Velociraptor, tinham penas. Durante muito tempo, os dinossauros foram retratados como
+            criaturas escamosas, mas evidências fósseis recentes mostraram que penas eram comuns, especialmente entre os
+            terópodes, o grupo de dinossauros que inclui os ancestrais das aves.
+            Essas penas podiam ter várias funções, como regulação térmica, exibição durante o acasalamento, ou até mesmo
+            para ajudar em saltos e manobras rápidas.
+            Isso reforça a ligação direta entre os dinossauros e os pássaros modernos, mostrando que os dinossauros não
+            estão completamente extintos—eles simplesmente evoluíram e ainda estão entre nós.
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <script setup>
 </script>
+
 <style scoped>
 .trivia-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
@@ -74,10 +85,34 @@ h2 {
 }
 
 .accordion-button {
-  background-color: black;
+  background-color: #000;
   font-weight: 700;
   color: #0f5;
   font-family: 'Poppins', sans-serif;
+  border: none;
 }
 
+.accordion-button::after {
+  filter: invert(70%) sepia(100%) saturate(2910%) hue-rotate(100deg) brightness(100%) contrast(100%);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-item {
+  border-bottom: solid 1px #0f5;
+  border-top: none;
+}
+
+.accordion-collapse {
+  background-color: #0c0c0c;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
 </style>

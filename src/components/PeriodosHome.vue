@@ -67,7 +67,7 @@
 
 .overlay-text {
   font-family: 'Poppins', sans-serif;
-  color: #0f5;
+  color: #fff;
   font-size: 25pt;
   font-weight: 700;
   text-align: center;
@@ -75,6 +75,7 @@
   transition: opacity 0.5s ease;
   text-transform: uppercase;
 }
+
 .content-overlay:hover .overlay-text {
   opacity: 1;
 }

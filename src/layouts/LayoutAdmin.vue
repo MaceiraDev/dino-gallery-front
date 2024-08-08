@@ -63,6 +63,20 @@ components: {
 .admin-layout input:focus {
   border: 1px solid #fff;
 }
+.admin-layout textarea {
+  color: #fff;
+  background-color: #212121;
+  border: 1px solid #0f5;
+  border-radius: 4px;
+  font-size: 14pt;
+  padding: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.admin-layout textarea:focus {
+  border: 1px solid #fff;
+}
 
 .admin-layout select {
   color: #fff;
