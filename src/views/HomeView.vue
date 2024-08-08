@@ -23,7 +23,9 @@
               <div class="section_2_title">
                 <div class="title">
                   <span>Curiosidades sobre os dinossauros!!</span>
-                  <h2>O que é o Dino Gallery?</h2>
+                  <div data-aos="fade-right">
+                    <h2>O que é o Dino Gallery?</h2>
+                  </div>
                   <div class="line"></div>
                 </div>
                 <p class="sobreDino">
@@ -91,11 +93,15 @@
         <div class="div_dieta mt-5">
           <h2><i class="bi bi-caret-right-fill"></i> Os temíveis Carnívoros</h2>
         </div>
-        <CarouselDino :dinos="state.carnivoros" />
+        <div data-aos="fade-right">
+          <CarouselDino :dinos="state.carnivoros" />
+        </div>
         <div class="div_dieta mt-2">
           <h2><i class="bi bi-caret-right-fill"></i> Os doces Herbívoros</h2>
         </div>
-        <CarouselDino :dinos="state.herbivoros" />
+        <div data-aos="fade-right">
+          <CarouselDino :dinos="state.herbivoros" />
+        </div>
       </div>
     </section>
     <section id="section_4">
