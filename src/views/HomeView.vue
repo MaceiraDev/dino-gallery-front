@@ -113,6 +113,9 @@
     <section id="section_6">
       <LastBanner />
     </section>
+    <div data-aos="fade-up">
+      <Footer />
+    </div>
   </main>
 </template>
 <script setup>
@@ -125,6 +128,7 @@ import services from '@/services';
 import PeriodosHome from '@/components/PeriodosHome.vue';
 import Trivia from '@/components/Trivia.vue';
 import LastBanner from '@/components/LastBanner.vue';
+import Footer from '@/components/Footer.vue';
 
 onMounted(() => {
   getCarinivoros();
@@ -152,6 +156,7 @@ async function getHerbivoros() {
 main {
   background: #111;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #image_banner {
