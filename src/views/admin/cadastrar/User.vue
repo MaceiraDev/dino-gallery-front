@@ -15,8 +15,16 @@
               <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
+              <label for="inputUser" class="form-label">Nome</label>
+              <input v-model="state.user.nome" type="text" id="inputUser" required>
+            </div>
+            <div class="col-sm-6">
+              <label for="inputUser" class="form-label">Email</label>
+              <input v-model="state.user.email" type="text" id="inputUser" required>
+            </div>
+            <div class="col-sm-6">
               <label for="inputUser" class="form-label">Tipo</label>
-              <input v-model="state.subFamilia.tipo" type="text" id="inputUser" required>
+              <input v-model="state.user.tipo" type="text" id="inputUser" required>
             </div>
           </div>
           <div class="text-end mt-3">
@@ -50,7 +58,7 @@ onMounted(() => {
 async function getUser(id) {
   try {
     const { data } = await services.user.getById(id);
-    state.subFamilia = data;
+    state.user = data;
   } catch (error) {
     console.error("Erro ao buscar user:", error);
   }

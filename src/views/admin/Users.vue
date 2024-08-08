@@ -7,7 +7,7 @@
                         <h5 class="card-title">Users</h5>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="/admin/cadastrar/user" class="btn-new" title="New">New Users</a>
+                      <RouterLink to="/admin/cadastrar/user" class="btn-new" title="New">Novo User</RouterLink>
                     </div>
                 </div>
             </div>
@@ -23,13 +23,16 @@
                 </tr>
             </thead>
             <tbody>
-              <tr v-for="User in state.Users" :key="User.id">
-                <td scope="row">{{ User.id }}</td>
-                <td>{{ User.tipo }}</td>
-                <td> <router-link :to="{ name: 'alterar-User', params: { id: User.id }, }" class="btn btn-primary"
+              <tr v-for="user in state.Users" :key="user.id">
+                <td scope="row">{{ user.id }}</td>
+                <td>{{ user.nome }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.tipo }}</td>
+
+                <td> <router-link :to="{ name: 'alterar-user', params: { id: user.id }, }" class="btn btn-primary"
                   title="Alterar"><i class="bi bi-pencil"></i>
                 </router-link>
-                  <a @click="deleteUsers(User.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
+                  <a @click="deleteUsers(user.id)" class="btn btn-danger" title="Deletar"><i class="bi bi-trash"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -42,13 +45,13 @@ import services from '@/services';
 import { ref, onMounted, reactive } from 'vue';
 
 const state = reactive({
-  Users: [],
+  user: [],
 })
 
 async function getUsers() {
   try {
     const { data } = await services.user.getAll();
-    state.Users = data;
+    state.user = data;
   } catch (error) {
     console.error('Erro ao buscar os usuarios:', error);
   }
