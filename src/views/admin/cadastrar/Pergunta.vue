@@ -21,13 +21,12 @@
             </div>
             <div class="col-sm-12">
               <label for="rsp" class="form-label">Resposta</label>
-              <textarea v-model="state.trivia.resposta" id="rsp" required></textarea>
+              <textarea rows="4" v-model="state.trivia.resposta" id="rsp" required></textarea>
             </div>
           </div>
           <div class="text-end mt-3">
-            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span><span
-                v-else>Cadastrar</span></button>
-            <router-link to="/admin/Periodos" class="btn btn-danger">Cancelar</router-link>"
+            <button type="submit" class="btn btn-primary me-2"><span v-if="state.id">Alterar</span><span v-else>Cadastrar</span></button>
+            <router-link to="/admin/perguntas-respostas" class="btn btn-danger">Cancelar</router-link>"
           </div>
         </form>
       </div>

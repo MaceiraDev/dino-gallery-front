@@ -3,6 +3,10 @@ export default (httpClient) => ({
     const response = await httpClient.get('/info-trivia');
     return { data: response.data }
   },
+  getAllSite: async () => {
+    const response = await httpClient.get('/info-trivia/todos-site');
+    return { data: response.data }
+  },
   getById: async (id) => {
     const response = await httpClient.get('/info-trivia/' + id);
     return { data: response.data }
