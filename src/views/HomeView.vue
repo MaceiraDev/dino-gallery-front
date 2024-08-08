@@ -110,6 +110,9 @@
     <section id="section_5">
       <Trivia />
     </section>
+    <section id="section_6">
+      <LastBanner />
+    </section>
   </main>
 </template>
 <script setup>
@@ -121,6 +124,7 @@ import { onMounted, reactive } from 'vue';
 import services from '@/services';
 import PeriodosHome from '@/components/PeriodosHome.vue';
 import Trivia from '@/components/Trivia.vue';
+import LastBanner from '@/components/LastBanner.vue';
 
 onMounted(() => {
   getCarinivoros();
@@ -308,6 +312,11 @@ main {
 
 #section_4 {
   height: 100vh;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#section_5 {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
