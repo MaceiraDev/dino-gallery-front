@@ -1,9 +1,7 @@
 <!-- LayoutAdmin.vue -->
 <template>
-
   <body>
     <div class="admin-layout">
-
       <div class="container-fluid">
         <nav class="row">
           <div class="col-xl-2 col-md-3 col-sm-4 pe-0">
@@ -14,7 +12,8 @@
               <div class="div_imagem">
                 <img id="logo_painel" src="./../assets/imagens/dino_logo.png" alt="Logo Dino Gallery" />
               </div>
-            </nav> <router-view />
+            </nav> 
+            <router-view />
           </div>
         </nav>
       </div>

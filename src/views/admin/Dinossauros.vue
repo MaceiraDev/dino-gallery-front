@@ -105,8 +105,6 @@ async function deletarDino(id) {
 onMounted(getDinos);
 </script>
 
-
-
 <style scoped>
 a {
   text-decoration: none;

@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LayoutAdmin from '../layouts/LayoutAdmin.vue';
 import HomeView from '../views/HomeView.vue';
 
-
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -22,6 +20,10 @@ const router = createRouter({
       name: 'dino-by-urn',
       component: () => import('../views/DinoView.vue')
     },
+
+
+
+    
     {
       path: '/admin',
       component: LayoutAdmin,
