@@ -99,6 +99,11 @@ const router = createRouter({
           component: () => import('../views/admin/Perguntas.vue')
         },
         {
+          path: 'filmes',
+          name: 'filmes',
+          component: () => import('../views/admin/Filmes.vue')
+        },
+        {
           path: 'users',
           name: 'users',
           component: () => import('../views/admin/Users.vue')
@@ -169,6 +174,11 @@ const router = createRouter({
           path: 'alterar/perguntas-respostas/:id',
           name: 'alterar-pergunta',
           component: () => import('../views/admin/cadastrar/Pergunta.vue')
+        },
+        {
+          path:'alterar/filme/:id',
+          name:'alterar-filme',
+          component: () => import('../views/admin/cadastrar/Filme.vue')
         },
         {
           path: 'alterar/user/:id',
@@ -242,6 +252,11 @@ const router = createRouter({
           path: 'cadastrar/perguntas-respostas',
           name: 'cadastrar-pergunta',
           component: () => import('../views/admin/cadastrar/Pergunta.vue')
+        },
+        {
+          path: 'cadastrar/filme',
+          name: 'cadastrar-filme',
+          component: () => import('../views/admin/cadastrar/Filme.vue')
         },
         {
           path: 'cadastrar/user',

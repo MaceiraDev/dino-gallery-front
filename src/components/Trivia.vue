@@ -70,7 +70,7 @@ h2 {
 }
 
 .accordion-item {
-  border-bottom: solid 1px #0f5;
+  border-bottom: solid 1px+ #0f5;
   border-top: none;
 }
 

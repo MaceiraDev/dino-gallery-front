@@ -67,6 +67,10 @@
         @click="setActive('perguntas')">
         <i class="bi bi-question-lg"></i><span>Perguntas e Respostas</span>
       </router-link>
+      <router-link to="/admin/filmes" class="nav" :class="{ 'nav-selected': activeLink === 'filmes' }"
+        @click="setActive('filmes')">
+        <i class="bi bi-camera-reels-fill"></i><span>Filmes</span>
+      </router-link>
       <router-link to="/admin/users" class="nav" :class="{ 'nav-selected': activeLink === 'users' }"
         @click="setActive('users')">
         <i class="bi bi-people-fill"></i><span>Users</span>
