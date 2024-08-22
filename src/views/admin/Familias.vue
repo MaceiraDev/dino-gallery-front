@@ -7,7 +7,7 @@
             <h5 class="card-title">Familias</h5>
           </div>
           <div class="col-md-6 text-end">
-            <RouterLink to="/admin/cadastrar/Familia" class="btn-new" title="New">Nova Familia</RouterLink>
+            <RouterLink to="/admin/cadastrar/familia" class="btn-new" title="New">Nova Familia</RouterLink>
           </div>
         </div>
       </div>

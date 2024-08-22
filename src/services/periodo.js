@@ -19,7 +19,7 @@ export default (httpClient) => ({
       throw error;
     }
   },
-  salvar: async ({tipo, dataPeriodo}) => {
+  salvar: async ({ tipo, dataPeriodo }) => {
     try {
       const response = await httpClient.post('/periodo/salvar', { tipo, dataPeriodo });
       return {
@@ -28,7 +28,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao salvar periodo:', error);
-      throw error; 
+      throw error;
     }
   },
   delete: async (id) => {
@@ -40,7 +40,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao deletar periodo:', error);
-      throw error; 
+      throw error;
     }
   }
 });

@@ -28,7 +28,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao salvar filo:', error);
-      throw error; 
+      throw error;
     }
   },
   delete: async (id) => {
@@ -40,7 +40,7 @@ export default (httpClient) => ({
     }
     catch (error) {
       console.error('Erro ao deletar filo:', error);
-      throw error; 
+      throw error;
     }
   }
 });

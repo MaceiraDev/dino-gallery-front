@@ -3,12 +3,10 @@ export default (httpClient) => ({
     const response = await httpClient.get('/filme');
     return { data: response.data }
   },
-
   getById: async (id) => {
     const response = await httpClient.get('/filme/' + id);
     return { data: response.data }
   },
-
   update: async (id, filme) => {
     try {
       const response = await httpClient.put('/filme/atualizar/' + id, filme);
@@ -21,7 +19,6 @@ export default (httpClient) => ({
       throw error;
     }
   },
-
   salvar: async (nome, sinopse, dtl, urn, genero) => {
     try {
       const response = await httpClient.post('/filme/salvar', nome, sinopse, dtl, urn, genero);
@@ -34,7 +31,6 @@ export default (httpClient) => ({
       throw error;
     }
   },
-  
   delete: async (id) => {
     try {
       const response = await httpClient.delete('/filme/deletar/' + id);

@@ -7,7 +7,7 @@
             <h5 class="card-title">Filmes</h5>
           </div>
           <div class="col-md-6 text-end">
-            <RouterLink to="/admin/cadastrar/Filme" class="btn-new" title="New">Novo Filme</RouterLink>
+            <RouterLink to="/admin/cadastrar/filme" class="btn-new" title="New">Novo Filme</RouterLink>
           </div>
         </div>
       </div>
