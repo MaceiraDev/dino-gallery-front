@@ -16,15 +16,15 @@
             </div>
             <div class="col-sm-6">
               <label for="inputUser" class="form-label">Nome</label>
-              <input v-model="state.user.nome" type="text" id="inputUser" required>
+              <input v-model="state.user.nome" type="text" placeholder="Nome do user:" id="inputUser" required>
             </div>
             <div class="col-sm-6">
               <label for="inputUser" class="form-label">Email</label>
-              <input v-model="state.user.email" type="text" id="inputUser" required>
+              <input v-model="state.user.email" type="text"  placeholder="Email do user:" id="inputUser" required>
             </div>
             <div class="col-sm-6">
               <label for="inputUser" class="form-label">Tipo</label>
-              <input v-model="state.user.tipo" type="text" id="inputUser" required>
+              <input v-model="state.user.tipo" type="text"  placeholder="Tipo de user:"  id="inputUser" required>
             </div>
           </div>
           <div class="text-end mt-3">

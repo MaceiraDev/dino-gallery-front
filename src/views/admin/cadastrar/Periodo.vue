@@ -17,11 +17,11 @@
             </div>
             <div class="col-sm-4">
               <label for="inputPeriodo" class="form-label">Tipo</label>
-              <input v-model="state.periodo.tipo" type="text" id="inputPeriodo" required>
+              <input v-model="state.periodo.tipo" type="text" placeholder="Periodo do dinossauro:" id="inputPeriodo" required>
             </div>
             <div class="col-sm-6">
               <label for="date" class="form-label">Data do Período</label>
-              <input v-model="state.periodo.dataPeriodo" type="text" id="date" required>
+              <input v-model="state.periodo.dataPeriodo" type="text" placeholder="Data do periodo do dinossauro:" id="date" required>
             </div>
           </div>
           <div class="text-end mt-3">

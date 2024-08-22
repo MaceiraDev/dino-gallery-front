@@ -16,8 +16,8 @@
               <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
-              <label for="inputDieta" class="form-label">Tipo</label>
-              <input v-model="state.especie.tipo" type="text" id="inputDieta" required>
+              <label for="inputEspecie" class="form-label">Tipo</label>
+              <input v-model="state.especie.tipo" type="text"  placeholder="Especie do dinossauro:" id="inputEspecie" required>
             </div>
           </div>
           <div class="text-end mt-3">

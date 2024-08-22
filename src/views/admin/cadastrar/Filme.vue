@@ -17,23 +17,23 @@
             </div>
             <div class="col-sm-6">
               <label for="inputFilme" class="form-label">Nome</label>
-              <input v-model="state.filme.nome" type="text" id="inputFilme" required>
+              <input v-model="state.filme.nome" type="text" placeholder="Nome do filme:" id="inputFilme" required>
             </div>
             <div class="col-sm-6">
               <label for="inputFilme" class="form-label">Data de Lançamento</label>
-              <input v-model="state.filme.dtl" type="text" v-mask-date.br id="text" required>
+              <input v-model="state.filme.dtl" type="text"  placeholder="Data de Lançamento do filme:" v-mask-date.br id="text" required>
             </div>
             <div class="col-sm-6">
               <label for="inputFilme" class="form-label">Sinopse</label>
-              <input v-model="state.filme.sinopse" type="text" id="inputFilme" required>
+              <input v-model="state.filme.sinopse" type="text" placeholder="Sinopse do filme:" id="inputFilme" required>
             </div>
             <div class="col-sm-6">
               <label for="inputFilme" class="form-label">Genero</label>
-              <input v-model="state.filme.genero" type="text" id="inputFilme" required>
+              <input v-model="state.filme.genero" type="text" placeholder="Genero do filme:" id="inputFilme" required>
             </div>
             <div class="col-sm-6">
               <label for="inputFilme" class="form-label">Urn</label>
-              <input v-model="state.filme.urn" type="text" id="inputFilme" required>
+              <input v-model="state.filme.urn" type="text" placeholder="Urn do filme:" id="inputFilme" required>
             </div>
           </div>
           <div class="text-end mt-3">

@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
               <label for="inputClado" class="form-label">Tipo</label>
-              <input v-model="state.clado.tipo" type="text" id="inputClado" required>
+              <input v-model="state.clado.tipo" type="text" placeholder="Tipo de clado:"  id="inputClado" required>
             </div>
           </div>
           <div class="text-end mt-3">

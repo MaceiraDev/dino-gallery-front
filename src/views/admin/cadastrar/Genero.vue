@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
               <label for="inputGenero" class="form-label">Tipo</label>
-              <input v-model="state.genero.tipo" type="text" id="inputGenero" required>
+              <input v-model="state.genero.tipo" type="text"  placeholder="Genero do dinossauro:" id="inputGenero" required>
             </div>
           </div>
           <div class="text-end mt-3">

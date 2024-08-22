@@ -16,8 +16,8 @@
               <input type="text" v-model="state.id" id="id" readonly>
             </div>
             <div class="col-sm-6">
-              <label for="inputDieta" class="form-label">Tipo</label>
-              <input v-model="state.dominio.tipo" type="text" id="inputDieta" required>
+              <label for="inputDominio" class="form-label">Tipo</label>
+              <input v-model="state.dominio.tipo" type="text"  placeholder="Dominio do dinossauro:" id="inputDominio" required>
             </div>
           </div>
           <div class="text-end mt-3">
@@ -54,7 +54,7 @@ async function getDominio(id) {
     const { data } = await services.dominio.getById(id);
     state.dominio = data;
   } catch (error) {
-    console.error("Erro ao buscar dieta:", error);
+    console.error("Erro ao buscar dominio:", error);
   }
 }
 

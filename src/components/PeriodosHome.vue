@@ -67,7 +67,7 @@
 
 .overlay-text {
   font-family: 'Poppins', sans-serif;
-  color: #fff;
+  color: #0f5;
   font-size: 25pt;
   font-weight: 700;
   text-align: center;

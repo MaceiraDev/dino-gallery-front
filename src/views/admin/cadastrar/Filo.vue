@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
               <label for="inputFilo" class="form-label">Tipo</label>
-              <input v-model="state.filo.tipo" type="text" id="inputFilo" required>
+              <input v-model="state.filo.tipo" type="text"  placeholder="Filo do dinossauro:"  id="inputFilo" required>
             </div>
           </div>
           <div class="text-end mt-3">

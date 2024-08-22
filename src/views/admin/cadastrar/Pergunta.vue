@@ -17,11 +17,11 @@
             </div>
             <div class="col-sm-6">
               <label for="pergunta" class="form-label">Pergunta</label>
-              <input v-model="state.trivia.pergunta" type="text" id="pergunta" required>
+              <input v-model="state.trivia.pergunta" type="text"  placeholder="Digite sua pergunta:" id="pergunta" required>
             </div>
             <div class="col-sm-12">
               <label for="rsp" class="form-label">Resposta</label>
-              <textarea rows="4" v-model="state.trivia.resposta" id="rsp" required></textarea>
+              <textarea rows="4" v-model="state.trivia.resposta" placeholder="Digite sua resposta:" id="rsp" required></textarea>
             </div>
           </div>
           <div class="text-end mt-3">

@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
               <label for="inputReino" class="form-label">Tipo</label>
-              <input v-model="state.reino.tipo" type="text" id="inputReino" required>
+              <input v-model="state.reino.tipo" type="text" placeholder="Reino do dinossauro:" id="inputReino" required>
             </div>
           </div>
           <div class="text-end mt-3">

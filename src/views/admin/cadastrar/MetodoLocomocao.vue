@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm-6">
               <label for="inputMetodoLocomocao" class="form-label">Tipo</label>
-              <input v-model="state.metodolocomocao.tipo" type="text" id="inputMetodoLocomocao" required>
+              <input v-model="state.metodolocomocao.tipo" type="text"  placeholder="Metodo de locomoção do dinossauro:" id="inputMetodoLocomocao" required>
             </div>
           </div>
           <div class="text-end mt-3">

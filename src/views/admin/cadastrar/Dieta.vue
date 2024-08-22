@@ -16,7 +16,7 @@
             </div>
             <div class="col-sm-6">
               <label for="inputDieta" class="form-label">Tipo</label>
-              <input v-model="state.dieta.tipo" type="text" id="inputDieta" required>
+              <input v-model="state.dieta.tipo" type="text" placeholder="Tipo de dieta:" id="inputDieta" required>
             </div>
           </div>
           <div class="text-end mt-3">

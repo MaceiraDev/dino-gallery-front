@@ -16,27 +16,27 @@
             </div>
             <div class="col-sm-2">
               <label for="nome" class="form-label">Nome</label>
-              <input type="text" id="nome" required v-model="state.dino.nome">
+              <input type="text" id="nome" placeholder="Nome do dinossauro:" required v-model="state.dino.nome">
             </div>
             <div class="col-sm-2">
               <label for="urn" class="form-label">Urn</label>
-              <input type="text" id="urn" required v-model="state.dino.urn">
+              <input type="text" id="urn" placeholder="Urn do dinossauro:" required v-model="state.dino.urn">
             </div>
             <div class="col-sm-2">
               <label for="tamn" class="form-label">Tamanho</label>
-              <input type="text" id="tamn" required v-model="state.dino.tamanho">
+              <input type="text" id="tamn"  placeholder="Tamanho do dinossauro:" required v-model="state.dino.tamanho">
             </div>
             <div class="col-sm-2">
               <label for="peso" class="form-label">Peso</label>
-              <input type="text" id="peso" required v-model="state.dino.peso">
+              <input type="text" id="peso" placeholder="Peso do dinossauro em kg:" required v-model="state.dino.peso">
             </div>
             <div class="col-sm-2">
               <label for="dieta" class="form-label">Dieta Principal</label>
-              <input type="text" id="dieta" required v-model="state.dino.dietaPrincipal">
+              <input type="text" id="dieta"  placeholder="Tipo de dieta do principal dinossauro:" required v-model="state.dino.dietaPrincipal">
             </div>
             <div class="col-sm-2">
               <label for="nature" class="form-label">Habitat Natural</label>
-              <input type="text" id="nature" required v-model="state.dino.habitatNatural">
+              <input type="text" id="nature"  placeholder="Habitat do dinossauro:" required v-model="state.dino.habitatNatural">
             </div>
             <div class="col-sm-2">
               <label for="dieta" class="form-label">Dieta</label>
